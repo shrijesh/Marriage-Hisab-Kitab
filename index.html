@@ -1366,76 +1366,902 @@ input[type="checkbox"] {
   }
 }
 
-@media(max-width:520px){.player-top{margin-bottom:12px}.maal-row{padding:14px 0 10px}.player-card{padding:16px}.player-card.is-winner{padding:15px}.segmented button{min-height:32px}}
+@media (max-width: 520px) {
+  .player-top {
+    margin-bottom: 12px;
+  }
+  .maal-row {
+    padding: 14px 0 10px;
+  }
+  .player-card {
+    padding: 16px;
+  }
+  .player-card.is-winner {
+    padding: 15px;
+  }
+  .segmented button {
+    min-height: 32px;
+  }
+}
 
 /* Marriage Club: warm ivory, forest felt and engraved brass. */
-:root { --bg:#f5f2eb; --surface:#fffdf8; --ink:#18382f; --muted:#657269; --line:#e1e1d6; --green:#174d3e; --soft:#e8eee6; --shadow:0 8px 28px #23392c08; }
-body { background-image:radial-gradient(ellipse at 100% 0%,#dfdfcb66,transparent 45%); }
-.topbar {height:88px;max-width:1280px;}
-.brand {font-family:Georgia,'Times New Roman',serif;font-size:1.55rem;letter-spacing:-.04em;}
-.brand small {font-family:system-ui,sans-serif;letter-spacing:.23em;}
-.brand-mark {background:#183e32;border:1px solid #a8905b;border-radius:9px;box-shadow:inset 0 0 0 3px #183e32,inset 0 0 0 4px #af935a66;}
-.desktop-nav {background:#e7e8de;padding:5px;border:1px solid var(--line);border-radius:40px;}
-.desktop-nav button {border-radius:30px;min-width:96px;}
-.desktop-nav button.active {background:var(--surface);box-shadow:0 2px 5px #18382f0d;}
-#main-content {max-width:1280px;padding-top:38px;}
-h1 {font-family:Georgia,'Times New Roman',serif;font-weight:400;font-size:clamp(2rem,4vw,3.25rem);letter-spacing:-.045em;}
-.page-heading .muted {font-size:.95rem;}
-.eyebrow {font-size:.68rem;letter-spacing:.19em;}
-.local-badge {background:var(--surface);font-size:.72rem;}
-.welcome-grid {grid-template-columns:1.75fr 1fr;gap:24px;}
-.table-banner {min-height:355px;padding:38px 38px 25px;background:radial-gradient(ellipse at 75% 30%,#28634c,#143e31 70%);border:1px solid #264c3a;border-radius:22px;box-shadow:0 12px 24px #133e3118;}
-.table-banner:before {content:'';position:absolute;inset:10px;border:1px solid #c5ab7040;border-radius:15px;pointer-events:none;}
-.table-banner:after {content:'';position:absolute;width:380px;height:380px;border:1px solid #d4bc7520;border-radius:50%;right:-45px;top:-30px;pointer-events:none;}
-.table-banner h2 {font-family:Georgia,'Times New Roman',serif;font-weight:400;font-size:clamp(2.2rem,3.4vw,3.1rem);line-height:1.06;letter-spacing:-.035em;}
-.table-banner p {max-width:270px;line-height:1.6;color:#d3ded3;}
-.table-banner .eyebrow {color:#d9c79a;}
-.table-banner .gold {background:linear-gradient(110deg,#f0deab,#d3b576);border:1px solid #f3dfad;box-shadow:0 4px 12px #0002;min-width:205px;justify-content:space-between;}
-.table-banner .gold span {font-size:1.3rem;}
-.banner-bottom {z-index:1;color:#c5d0bd;font-size:.63rem;letter-spacing:.14em;}
-.card-fan {position:absolute;right:48px;top:60px;width:165px;height:215px;pointer-events:none;}
-.playing-card {position:absolute;inset:0;border-radius:13px;background:#fcf7e8;color:#18372d;padding:15px;box-shadow:0 14px 25px #041c2750;border:1px solid #efe2c3;transform-origin:50% 90%;}
-.playing-card span {display:block;font:27px/1 Georgia,serif;}
-.playing-card small {display:block;font-size:22px;margin-top:4px;}
-.playing-card b {position:absolute;inset:0;display:grid;place-items:center;font:100px Georgia,serif;}
-.card-back {transform:rotate(-23deg) translateX(-36px);background:repeating-linear-gradient(45deg,#214e40,#214e40 4px,#2b5b49 4px,#2b5b49 6px);border:6px solid #ede2c6;outline:1px solid #dbcfb4;}
-.card-back span {position:absolute;inset:8px;border:1px solid #e7cea6;display:grid;place-items:center;font-size:60px;color:#c8b585;}
-.card-red {transform:rotate(-10deg) translateX(-15px);color:#ac443e;}
-.card-ace {transform:rotate(9deg);}
-.playing-card .card-corner {position:absolute;bottom:15px;right:15px;transform:rotate(180deg);}
-.quick-card {padding:30px;border-radius:22px;box-shadow:var(--shadow);}
-.quick-card h2 {font:400 1.7rem/1.2 Georgia,serif;letter-spacing:-.035em;}
-.simple-steps {list-style:none;counter-reset:steps;padding:0;margin:24px 0 12px;width:100%;}
-.simple-steps li {counter-increment:steps;display:flex;align-items:center;gap:12px;line-height:1.4;margin-bottom:18px;}
-.simple-steps li:before {content:counter(steps,decimal-leading-zero);font-size:.7rem;border:1px solid var(--line);border-radius:50%;width:30px;height:30px;display:grid;place-items:center;flex-shrink:0;color:var(--green);}
-.empty {border-style:solid;background:var(--surface);padding:30px 20px;border-radius:18px;}
-.empty-symbol {color:#9c8859;}
-.button {border-radius:12px;min-height:48px;}
-.primary {box-shadow:0 3px 6px #183e3114;}
-.card,.player-card,.settlement-card,.preview-panel {box-shadow:var(--shadow);border-radius:18px;}
-.game-card:hover {border-color:#a4b4a2;}
-.player-card.is-winner {border-color:#b69b5b;background:linear-gradient(135deg,var(--surface),#eee5ce);box-shadow:0 0 0 3px #b69b5b15;}
-.player-card.is-winner .winner-select {background:#e4d4aa;color:#4d3c1b;border-color:#bba575;}
-.avatar {width:42px;height:42px;border:3px double #769e8866;}
-.leaderboard {border-radius:18px;overflow:hidden;box-shadow:var(--shadow);}
-.leader-row:first-child {background:linear-gradient(100deg,var(--soft),var(--surface));}
-.leader-row:first-child .rank {color:#95763b;font-weight:700;}
-.leader-score .score-number {font-size:1.9rem;font-weight:650;letter-spacing:-.06em;font-variant-numeric:tabular-nums;}
-.stepper input {font-size:1.6rem;font-weight:650;font-variant-numeric:tabular-nums;}
-.segmented {padding:4px;background:var(--soft);border-radius:12px;}
-.segmented button {min-height:40px;border-radius:8px;}
-.preview-panel {border-top:3px solid #b29a62;}
-.settlement-card {border-top:3px solid #b29a62;}
-.site-footer {font-size:.68rem;letter-spacing:.02em;}
-[data-theme="dark"] {--bg:#101e19;--surface:#192a23;--ink:#f0eedf;--muted:#b1bdad;--line:#35483a;--soft:#263e30;--green:#286047;}
-[data-theme="dark"] .desktop-nav {background:#172b21;}
-[data-theme="dark"] .player-card.is-winner {background:linear-gradient(135deg,var(--surface),#3b3824);}
-@media(min-width:761px) and (max-width:1080px) {.card-fan{right:28px;top:90px;transform:scale(.75);transform-origin:right center}.table-banner p{max-width:220px}.table-banner h2{font-size:2.3rem;}}
-@media(max-width:760px) {.topbar{height:78px}.welcome-grid{grid-template-columns:1fr;gap:18px}.table-banner{min-height:345px;padding:30px 26px 23px}.card-fan{right:30px;top:45px;transform:scale(.8);transform-origin:right center}.table-banner h2{font-size:2.7rem;max-width:290px}.table-banner p{max-width:240px}.quick-card{padding:24px}.quick-card h2{font-size:1.5rem}.simple-steps{margin-top:20px}.mobile-nav{box-shadow:0 -8px 24px #18382f08}.mobile-nav button.active{color:var(--ink)}.page-heading{gap:16px}.local-badge{font-size:.65rem}.segmented button{min-height:40px}.site-footer{line-height:1.6;}}
-@media(max-width:520px) {.card-fan{right:17px;top:70px;transform:scale(.57)}.table-banner{min-height:325px}.table-banner h2{font-size:2.5rem;max-width:235px}.table-banner p{max-width:195px;font-size:.8rem}.banner-bottom{font-size:.52rem;letter-spacing:.08em}.table-banner .gold{min-width:195px}.page-heading h1{font-size:2.2rem}.brand{font-size:1.4rem}.player-card{padding:18px}.player-card.is-winner{padding:17px}.winner-select{min-height:40px}.quick-card .text-button{padding-top:4px}.maal-row{padding-top:16px}.empty h3{font-size:.95rem;}}
-@media(max-width:520px){.table-banner{min-height:340px}.table-banner h2{font-size:2.15rem;max-width:none;margin-top:18px}.table-banner p{max-width:160px;margin-top:16px;margin-bottom:25px}.card-fan{top:auto;bottom:68px;right:18px;transform:scale(.42);transform-origin:right bottom}.table-banner .gold{min-width:190px}.simple-steps li::marker{content:''}}
-.board-layout>section,.board-layout>aside,.round-layout>div,.round-layout>aside{min-width:0}.table-wrap{max-width:100%;overflow-x:auto}.leader-score{flex-shrink:0}.rank{flex-shrink:0}
-[data-theme="dark"] body{background-image:radial-gradient(ellipse at 100% 0%,#29473233,transparent 45%)}
+:root {
+  --bg: #f5f2eb;
+  --surface: #fffdf8;
+  --ink: #18382f;
+  --muted: #657269;
+  --line: #e1e1d6;
+  --green: #174d3e;
+  --soft: #e8eee6;
+  --shadow: 0 8px 28px #23392c08;
+}
+body {
+  background-image: radial-gradient(
+    ellipse at 100% 0%,
+    #dfdfcb66,
+    transparent 45%
+  );
+}
+.topbar {
+  height: 88px;
+  max-width: 1280px;
+}
+.brand {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.55rem;
+  letter-spacing: -0.04em;
+}
+.brand small {
+  font-family: system-ui, sans-serif;
+  letter-spacing: 0.23em;
+}
+.brand-mark {
+  background: #183e32;
+  border: 1px solid #a8905b;
+  border-radius: 9px;
+  box-shadow:
+    inset 0 0 0 3px #183e32,
+    inset 0 0 0 4px #af935a66;
+}
+.desktop-nav {
+  background: #e7e8de;
+  padding: 5px;
+  border: 1px solid var(--line);
+  border-radius: 40px;
+}
+.desktop-nav button {
+  border-radius: 30px;
+  min-width: 96px;
+}
+.desktop-nav button.active {
+  background: var(--surface);
+  box-shadow: 0 2px 5px #18382f0d;
+}
+#main-content {
+  max-width: 1280px;
+  padding-top: 38px;
+}
+h1 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  letter-spacing: -0.045em;
+}
+.page-heading .muted {
+  font-size: 0.95rem;
+}
+.eyebrow {
+  font-size: 0.68rem;
+  letter-spacing: 0.19em;
+}
+.local-badge {
+  background: var(--surface);
+  font-size: 0.72rem;
+}
+.welcome-grid {
+  grid-template-columns: 1.75fr 1fr;
+  gap: 24px;
+}
+.table-banner {
+  min-height: 355px;
+  padding: 38px 38px 25px;
+  background: radial-gradient(ellipse at 75% 30%, #28634c, #143e31 70%);
+  border: 1px solid #264c3a;
+  border-radius: 22px;
+  box-shadow: 0 12px 24px #133e3118;
+}
+.table-banner:before {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  border: 1px solid #c5ab7040;
+  border-radius: 15px;
+  pointer-events: none;
+}
+.table-banner:after {
+  content: "";
+  position: absolute;
+  width: 380px;
+  height: 380px;
+  border: 1px solid #d4bc7520;
+  border-radius: 50%;
+  right: -45px;
+  top: -30px;
+  pointer-events: none;
+}
+.table-banner h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  font-size: clamp(2.2rem, 3.4vw, 3.1rem);
+  line-height: 1.06;
+  letter-spacing: -0.035em;
+}
+.table-banner p {
+  max-width: 270px;
+  line-height: 1.6;
+  color: #d3ded3;
+}
+.table-banner .eyebrow {
+  color: #d9c79a;
+}
+.table-banner .gold {
+  background: linear-gradient(110deg, #f0deab, #d3b576);
+  border: 1px solid #f3dfad;
+  box-shadow: 0 4px 12px #0002;
+  min-width: 205px;
+  justify-content: space-between;
+}
+.table-banner .gold span {
+  font-size: 1.3rem;
+}
+.banner-bottom {
+  z-index: 1;
+  color: #c5d0bd;
+  font-size: 0.63rem;
+  letter-spacing: 0.14em;
+}
+.card-fan {
+  position: absolute;
+  right: 48px;
+  top: 60px;
+  width: 165px;
+  height: 215px;
+  pointer-events: none;
+}
+.playing-card {
+  position: absolute;
+  inset: 0;
+  border-radius: 13px;
+  background: #fcf7e8;
+  color: #18372d;
+  padding: 15px;
+  box-shadow: 0 14px 25px #041c2750;
+  border: 1px solid #efe2c3;
+  transform-origin: 50% 90%;
+}
+.playing-card span {
+  display: block;
+  font:
+    27px/1 Georgia,
+    serif;
+}
+.playing-card small {
+  display: block;
+  font-size: 22px;
+  margin-top: 4px;
+}
+.playing-card b {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font:
+    100px Georgia,
+    serif;
+}
+.card-back {
+  transform: rotate(-23deg) translateX(-36px);
+  background: repeating-linear-gradient(
+    45deg,
+    #214e40,
+    #214e40 4px,
+    #2b5b49 4px,
+    #2b5b49 6px
+  );
+  border: 6px solid #ede2c6;
+  outline: 1px solid #dbcfb4;
+}
+.card-back span {
+  position: absolute;
+  inset: 8px;
+  border: 1px solid #e7cea6;
+  display: grid;
+  place-items: center;
+  font-size: 60px;
+  color: #c8b585;
+}
+.card-red {
+  transform: rotate(-10deg) translateX(-15px);
+  color: #ac443e;
+}
+.card-ace {
+  transform: rotate(9deg);
+}
+.playing-card .card-corner {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  transform: rotate(180deg);
+}
+.quick-card {
+  padding: 30px;
+  border-radius: 22px;
+  box-shadow: var(--shadow);
+}
+.quick-card h2 {
+  font:
+    400 1.7rem/1.2 Georgia,
+    serif;
+  letter-spacing: -0.035em;
+}
+.simple-steps {
+  list-style: none;
+  counter-reset: steps;
+  padding: 0;
+  margin: 24px 0 12px;
+  width: 100%;
+}
+.simple-steps li {
+  counter-increment: steps;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  line-height: 1.4;
+  margin-bottom: 18px;
+}
+.simple-steps li:before {
+  content: counter(steps, decimal-leading-zero);
+  font-size: 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  color: var(--green);
+}
+.empty {
+  border-style: solid;
+  background: var(--surface);
+  padding: 30px 20px;
+  border-radius: 18px;
+}
+.empty-symbol {
+  color: #9c8859;
+}
+.button {
+  border-radius: 12px;
+  min-height: 48px;
+}
+.primary {
+  box-shadow: 0 3px 6px #183e3114;
+}
+.card,
+.player-card,
+.settlement-card,
+.preview-panel {
+  box-shadow: var(--shadow);
+  border-radius: 18px;
+}
+.game-card:hover {
+  border-color: #a4b4a2;
+}
+.player-card.is-winner {
+  border-color: #b69b5b;
+  background: linear-gradient(135deg, var(--surface), #eee5ce);
+  box-shadow: 0 0 0 3px #b69b5b15;
+}
+.player-card.is-winner .winner-select {
+  background: #e4d4aa;
+  color: #4d3c1b;
+  border-color: #bba575;
+}
+.avatar {
+  width: 42px;
+  height: 42px;
+  border: 3px double #769e8866;
+}
+.leaderboard {
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.leader-row:first-child {
+  background: linear-gradient(100deg, var(--soft), var(--surface));
+}
+.leader-row:first-child .rank {
+  color: #95763b;
+  font-weight: 700;
+}
+.leader-score .score-number {
+  font-size: 1.9rem;
+  font-weight: 650;
+  letter-spacing: -0.06em;
+  font-variant-numeric: tabular-nums;
+}
+.stepper input {
+  font-size: 1.6rem;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+}
+.segmented {
+  padding: 4px;
+  background: var(--soft);
+  border-radius: 12px;
+}
+.segmented button {
+  min-height: 40px;
+  border-radius: 8px;
+}
+.preview-panel {
+  border-top: 3px solid #b29a62;
+}
+.settlement-card {
+  border-top: 3px solid #b29a62;
+}
+.site-footer {
+  font-size: 0.68rem;
+  letter-spacing: 0.02em;
+}
+[data-theme="dark"] {
+  --bg: #101e19;
+  --surface: #192a23;
+  --ink: #f0eedf;
+  --muted: #b1bdad;
+  --line: #35483a;
+  --soft: #263e30;
+  --green: #286047;
+}
+[data-theme="dark"] .desktop-nav {
+  background: #172b21;
+}
+[data-theme="dark"] .player-card.is-winner {
+  background: linear-gradient(135deg, var(--surface), #3b3824);
+}
+@media (min-width: 761px) and (max-width: 1080px) {
+  .card-fan {
+    right: 28px;
+    top: 90px;
+    transform: scale(0.75);
+    transform-origin: right center;
+  }
+  .table-banner p {
+    max-width: 220px;
+  }
+  .table-banner h2 {
+    font-size: 2.3rem;
+  }
+}
+@media (max-width: 760px) {
+  .topbar {
+    height: 78px;
+  }
+  .welcome-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .table-banner {
+    min-height: 345px;
+    padding: 30px 26px 23px;
+  }
+  .card-fan {
+    right: 30px;
+    top: 45px;
+    transform: scale(0.8);
+    transform-origin: right center;
+  }
+  .table-banner h2 {
+    font-size: 2.7rem;
+    max-width: 290px;
+  }
+  .table-banner p {
+    max-width: 240px;
+  }
+  .quick-card {
+    padding: 24px;
+  }
+  .quick-card h2 {
+    font-size: 1.5rem;
+  }
+  .simple-steps {
+    margin-top: 20px;
+  }
+  .mobile-nav {
+    box-shadow: 0 -8px 24px #18382f08;
+  }
+  .mobile-nav button.active {
+    color: var(--ink);
+  }
+  .page-heading {
+    gap: 16px;
+  }
+  .local-badge {
+    font-size: 0.65rem;
+  }
+  .segmented button {
+    min-height: 40px;
+  }
+  .site-footer {
+    line-height: 1.6;
+  }
+}
+@media (max-width: 520px) {
+  .card-fan {
+    right: 17px;
+    top: 70px;
+    transform: scale(0.57);
+  }
+  .table-banner {
+    min-height: 325px;
+  }
+  .table-banner h2 {
+    font-size: 2.5rem;
+    max-width: 235px;
+  }
+  .table-banner p {
+    max-width: 195px;
+    font-size: 0.8rem;
+  }
+  .banner-bottom {
+    font-size: 0.52rem;
+    letter-spacing: 0.08em;
+  }
+  .table-banner .gold {
+    min-width: 195px;
+  }
+  .page-heading h1 {
+    font-size: 2.2rem;
+  }
+  .brand {
+    font-size: 1.4rem;
+  }
+  .player-card {
+    padding: 18px;
+  }
+  .player-card.is-winner {
+    padding: 17px;
+  }
+  .winner-select {
+    min-height: 40px;
+  }
+  .quick-card .text-button {
+    padding-top: 4px;
+  }
+  .maal-row {
+    padding-top: 16px;
+  }
+  .empty h3 {
+    font-size: 0.95rem;
+  }
+}
+@media (max-width: 520px) {
+  .table-banner {
+    min-height: 340px;
+  }
+  .table-banner h2 {
+    font-size: 2.15rem;
+    max-width: none;
+    margin-top: 18px;
+  }
+  .table-banner p {
+    max-width: 160px;
+    margin-top: 16px;
+    margin-bottom: 25px;
+  }
+  .card-fan {
+    top: auto;
+    bottom: 68px;
+    right: 18px;
+    transform: scale(0.42);
+    transform-origin: right bottom;
+  }
+  .table-banner .gold {
+    min-width: 190px;
+  }
+  .simple-steps li::marker {
+    content: "";
+  }
+}
+.board-layout > section,
+.board-layout > aside,
+.round-layout > div,
+.round-layout > aside {
+  min-width: 0;
+}
+.table-wrap {
+  max-width: 100%;
+  overflow-x: auto;
+}
+.leader-score {
+  flex-shrink: 0;
+}
+.rank {
+  flex-shrink: 0;
+}
+[data-theme="dark"] body {
+  background-image: radial-gradient(
+    ellipse at 100% 0%,
+    #29473233,
+    transparent 45%
+  );
+}
+/* V2: compact scoring and reusable table controls. */
+.saved-profile {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  border-bottom: 1px solid var(--line);
+  padding: 16px 0;
+  overflow-wrap: anywhere;
+}
+.saved-profile > span {
+  min-width: 0;
+}
+.saved-profile small {
+  display: block;
+  color: var(--muted);
+  margin-top: 4px;
+}
+.saved-profile button {
+  flex-shrink: 0;
+}
+.form-section h2 {
+  margin-top: 24px;
+}
+.scorecard-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+.scorecard-actions {
+  flex-wrap: wrap;
+}
+.v2-round .player-card {
+  padding: 14px 16px;
+}
+.v2-round .player-top {
+  margin-bottom: 10px;
+}
+.v2-round .maal-row {
+  padding: 10px 0;
+}
+.v2-round .player-bottom {
+  padding-top: 4px;
+}
+.v2-round .avatar {
+  width: 32px;
+  height: 32px;
+}
+.v2-round .player-bottom .muted {
+  display: none;
+}
+.v2-round .round-player-grid {
+  grid-template-columns: 1fr;
+}
+.v2-round .player-card {
+  display: grid;
+  grid-template-columns: minmax(120px, 1.2fr) minmax(105px, 1fr) minmax(
+      140px,
+      1fr
+    );
+  gap: 8px 14px;
+  align-items: center;
+}
+.v2-round .player-top {
+  margin: 0;
+  grid-row: 1/3;
+}
+.v2-round .segmented {
+  grid-row: 1/3;
+}
+.v2-round .maal-row {
+  padding: 0;
+}
+.v2-round .maal-label {
+  display: none;
+}
+.v2-round .player-bottom {
+  border: 0;
+  padding: 0;
+  justify-content: flex-end;
+}
+.v2-round .toggle {
+  font-size: 0.75rem;
+  margin: 0;
+}
+.v2-round .winner-select {
+  width: 100%;
+  margin-top: 2px;
+}
+.v2-round .player-card.is-winner {
+  padding: 13px 15px;
+}
+.v2-round .stepper {
+  margin-left: auto;
+}
+.v2-round .house-rules {
+  margin-top: 16px;
+}
+.v2-round .preview-panel {
+  position: sticky;
+  top: 16px;
+}
+@media (max-width: 1000px) and (min-width: 761px) {
+  .v2-round .player-card {
+    grid-template-columns: 1fr 1fr;
+  }
+  .v2-round .player-top {
+    grid-row: 1/3;
+  }
+  .v2-round .segmented {
+    grid-row: auto;
+  }
+  .v2-round .player-bottom {
+    grid-column: 2;
+  }
+}
+@media (max-width: 760px) {
+  .v2-round .player-card {
+    grid-template-columns: minmax(0, 1fr) 138px;
+    gap: 6px 12px;
+  }
+  .v2-round .player-top {
+    grid-row: 1;
+    flex-wrap: nowrap;
+  }
+  .v2-round .winner-select {
+    width: auto;
+    margin: 0;
+    min-height: 40px;
+    flex-shrink: 0;
+  }
+  .v2-round .segmented {
+    grid-row: 1;
+    grid-column: 2;
+  }
+  .v2-round .maal-row {
+    grid-column: 2;
+    grid-row: 2;
+  }
+  .v2-round .player-bottom {
+    grid-column: 1;
+    grid-row: 2;
+    justify-content: flex-start;
+  }
+  .v2-round .player-name {
+    font-size: 0.875rem;
+  }
+  .v2-round .preview-panel {
+    position: static;
+    padding: 18px;
+  }
+  .v2-round .preview-row {
+    padding: 6px 0;
+  }
+  .v2-round .maal-total {
+    padding-bottom: 12px;
+    margin-bottom: 6px;
+  }
+  .v2-round .preview-panel .full {
+    margin-top: 12px;
+  }
+  .v2-round .player-top .avatar {
+    display: none;
+  }
+  .v2-round .player-card {
+    border-radius: 14px;
+  }
+  .v2-round .round-player-grid {
+    gap: 10px;
+  }
+  .v2-round .segmented button {
+    min-height: 36px;
+  }
+  .v2-round .player-top {
+    flex-wrap: wrap;
+  }
+  .v2-round .winner-select {
+    min-height: 36px;
+  }
+  .scorecard-actions .button {
+    flex: 1;
+    font-size: 0.8rem;
+    padding: 10px;
+  }
+}
+@media (max-width: 760px) {
+  #main-content:has(.v2-round) {
+    padding-top: 18px;
+  }
+  #main-content:has(.v2-round) > .back-link {
+    margin-bottom: 8px;
+  }
+  #main-content:has(.v2-round) .page-heading {
+    margin-bottom: 16px;
+  }
+  #main-content:has(.v2-round) .page-heading h1 {
+    font-size: 1.6rem;
+  }
+  #main-content:has(.v2-round) .page-heading .muted {
+    font-size: 0.75rem;
+  }
+  .v2-round .player-card {
+    grid-template-columns: minmax(0, 1fr) 96px 90px;
+    gap: 4px 8px;
+    padding: 10px 12px;
+  }
+  .v2-round .player-card.is-winner {
+    padding: 9px 11px;
+  }
+  .v2-round .player-top {
+    grid-column: 1;
+    grid-row: 1/3;
+    gap: 3px;
+  }
+  .v2-round .winner-select {
+    width: 100%;
+    min-height: 32px;
+    font-size: 0.65rem;
+    padding: 4px;
+  }
+  .v2-round .player-name {
+    font-size: 0.8rem;
+  }
+  .v2-round .segmented {
+    grid-column: 2;
+    grid-row: 1/3;
+    padding: 2px;
+    gap: 0;
+  }
+  .v2-round .segmented button {
+    font-size: 0.7rem;
+    min-height: 36px;
+  }
+  .v2-round .maal-row {
+    grid-column: 3;
+    grid-row: 1;
+  }
+  .v2-round .player-bottom {
+    grid-column: 3;
+    grid-row: 2;
+    justify-content: flex-end;
+  }
+  .v2-round .stepper button {
+    width: 23px;
+    height: 34px;
+  }
+  .v2-round .stepper input {
+    width: 40px;
+    min-height: 34px;
+    font-size: 1.3rem;
+  }
+  .v2-round .toggle {
+    font-size: 0.65rem;
+  }
+  .v2-round .toggle input {
+    width: 14px;
+    height: 14px;
+  }
+  .v2-round .house-rules {
+    padding: 10px 12px;
+    margin-top: 12px;
+  }
+  .v2-round .round-layout {
+    gap: 12px;
+  }
+  .v2-round {
+    gap: 12px;
+  }
+  .v2-round .preview-panel {
+    padding: 14px;
+    margin-top: 0;
+  }
+  .v2-round .preview-panel .eyebrow {
+    display: none;
+  }
+  .v2-round #round-preview {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 8px;
+  }
+  .v2-round .preview-row {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    font-size: 0.7rem;
+  }
+  .v2-round .preview-row .score-number {
+    font-size: 1.15rem;
+  }
+  .v2-round .maal-total {
+    padding: 0 0 8px;
+  }
+  .v2-round .maal-total strong {
+    font-size: 1.3rem;
+  }
+  .v2-round .preview-panel > .small {
+    display: none;
+  }
+  .v2-round .preview-panel > .text-button {
+    padding: 5px 0;
+    font-size: 0.75rem;
+  }
+  .v2-round .preview-panel .full {
+    min-height: 44px;
+    margin-top: 8px;
+  }
+  .v2-round .better-badge {
+    grid-column: 1/-1;
+  }
+  .v2-round #round-preview > p {
+    grid-column: 1/-1;
+  }
+  .v2-round .preview-row > span {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+}
+@media (max-width: 760px) {
+  #app-shell:has(.v2-round) .topbar {
+    height: 64px;
+  }
+  #main-content:has(.v2-round) {
+    padding-top: 12px;
+  }
+  #main-content:has(.v2-round) .page-heading .muted {
+    display: none;
+  }
+  #main-content:has(.v2-round) .page-heading .eyebrow {
+    margin-bottom: 6px;
+  }
+  #main-content:has(.v2-round) .page-heading {
+    margin-bottom: 12px;
+  }
+  #main-content:has(.v2-round) > .back-link {
+    padding: 4px 0;
+    margin-bottom: 8px;
+  }
+  .v2-round .player-card {
+    padding: 8px 12px;
+  }
+  .v2-round .player-card.is-winner {
+    padding: 7px 11px;
+  }
+  .v2-round .round-player-grid {
+    gap: 8px;
+  }
+  .v2-round .winner-select {
+    min-height: 30px;
+  }
+  .v2-round .house-rules {
+    padding: 8px 12px;
+    margin-top: 10px;
+  }
+  .v2-round .preview-panel > .text-button {
+    padding: 3px 0;
+  }
+  .v2-round .preview-panel .full {
+    min-height: 42px;
+  }
+}
+
+.scorecard-actions a {
+  text-decoration: none;
+}
 
 </style>
   </head>
@@ -1449,7 +2275,7 @@ h1 {font-family:Georgia,'Times New Roman',serif;font-weight:400;font-size:clamp(
           aria-label="Go home"
         >
           <span class="brand-mark">♠</span
-          ><span>Marriage<small>HISAB KITAB</small></span>
+          ><span>Marriage<small>HISAB KITAB · V2</small></span>
         </button>
         <nav class="desktop-nav" aria-label="Primary">
           <button data-action="navigate" data-view="home">My table</button
@@ -1487,6 +2313,173 @@ h1 {font-family:Georgia,'Times New Roman',serif;font-weight:400;font-size:clamp(
     <div id="modal-root"></div>
     <div id="toast" class="toast" role="status" aria-live="polite"></div>
     <script type="module">
+// Source: js/v2.js
+const ruleDefaults = {
+  seenPoint: 3,
+  unseenPoint: 10,
+  dubleeBonus: 0,
+  dubleeExempt: true,
+  better: false,
+};
+function validateTableProfile(profile) {
+  if (
+    !profile ||
+    typeof profile.name !== "string" ||
+    !profile.name.trim() ||
+    profile.name.length > 80 ||
+    !Array.isArray(profile.names) ||
+    profile.names.length < 2 ||
+    profile.names.length > 8 ||
+    profile.names.some(
+      (n) => typeof n !== "string" || !n.trim() || n.length > 40,
+    ) ||
+    new Set(profile.names.map((n) => n.trim().toLowerCase())).size !==
+      profile.names.length
+  )
+    throw Error("Invalid saved player group.");
+}
+function validateRuleProfile(profile) {
+  if (
+    !profile ||
+    typeof profile.name !== "string" ||
+    !profile.name.trim() ||
+    profile.name.length > 80 ||
+    !["seenPoint", "unseenPoint", "dubleeBonus"].every(
+      (k) =>
+        Number.isSafeInteger(profile.settings?.[k]) &&
+        profile.settings[k] >= 0 &&
+        profile.settings[k] <= 10000,
+    ) ||
+    !["dubleeExempt", "better"].every(
+      (k) => typeof profile.settings[k] === "boolean",
+    )
+  )
+    throw Error("Invalid saved rules.");
+}
+function recoverySnapshot(
+  previousGames,
+  nextGames,
+  history,
+  now = new Date().toISOString(),
+) {
+  if (JSON.stringify(previousGames) === JSON.stringify(nextGames))
+    return history;
+  const points = [
+    { createdAt: now, games: structuredClone(previousGames) },
+    ...history,
+  ].slice(0, 10);
+  while (points.length > 1 && JSON.stringify(points).length > 1000000)
+    points.pop();
+  return points;
+}
+async function scorecardImage(game) {
+  const transfers = settleBalances(
+    game.players,
+    game.rounds,
+    game.settings.pointRate,
+  );
+  const rows = [...game.players]
+    .map((p) => ({
+      ...p,
+      points: game.rounds.reduce((s, r) => s + (r.scores[p.id] || 0), 0),
+    }))
+    .sort((a, b) => b.points - a.points);
+  const currency = game.settings.currency === "USD" ? "$" : "Rs. ";
+  const fmt = (n) =>
+    `${n < 0 ? "−" : ""}${currency}${Math.abs(n).toLocaleString("en-IN", { maximumFractionDigits: 2 })}`;
+  const canvas = document.createElement("canvas");
+  canvas.width = 1080;
+  canvas.height = 450 + rows.length * 110 + Math.max(1, transfers.length) * 72;
+  const c = canvas.getContext("2d");
+  c.fillStyle = "#f5f2eb";
+  c.fillRect(0, 0, 1080, canvas.height);
+  c.fillStyle = "#174d3e";
+  c.fillRect(0, 0, 1080, 230);
+  function text(value, x, y, font, color, max = 940) {
+    c.font = font;
+    c.fillStyle = color;
+    let s = String(value);
+    while (c.measureText(s).width > max && s.length > 1)
+      s = s.slice(0, -2) + "…";
+    c.fillText(s, x, y);
+  }
+  text("MARRIAGE · HISAB KITAB", 60, 65, "bold 23px sans-serif", "#dfc58a");
+  text(game.name, 60, 133, "48px Georgia", "#fffdf8");
+  text(
+    `${game.rounds.length} rounds · ${fmt(game.settings.pointRate)} per point`,
+    60,
+    184,
+    "25px sans-serif",
+    "#d3ded3",
+  );
+  let y = 290;
+  for (const [i, p] of rows.entries()) {
+    c.fillStyle = i === 0 ? "#e8eee6" : "#fffdf8";
+    c.fillRect(40, y - 35, 1000, 100);
+    text(
+      String(i + 1).padStart(2, "0"),
+      65,
+      y + 12,
+      "22px sans-serif",
+      "#657269",
+    );
+    text(p.name, 125, y + 12, "bold 30px sans-serif", "#18382f", 540);
+    c.textAlign = "right";
+    text(
+      `${p.points > 0 ? "+" : ""}${p.points}`,
+      990,
+      y + 5,
+      "bold 38px sans-serif",
+      p.points < 0 ? "#b74442" : "#147457",
+      280,
+    );
+    text(
+      fmt(p.points * game.settings.pointRate),
+      990,
+      y + 39,
+      "22px sans-serif",
+      "#657269",
+      280,
+    );
+    c.textAlign = "left";
+    y += 110;
+  }
+  y += 40;
+  text("SETTLEMENT", 60, y, "bold 22px sans-serif", "#657269");
+  y += 55;
+  if (!transfers.length) {
+    text(
+      game.rounds.length ? "All square." : "No rounds recorded.",
+      60,
+      y,
+      "26px sans-serif",
+      "#18382f",
+    );
+    y += 72;
+  }
+  for (const t of transfers) {
+    text(`${t.from} → ${t.to}`, 60, y, "26px sans-serif", "#18382f", 670);
+    c.textAlign = "right";
+    text(fmt(t.amount), 1000, y, "bold 27px sans-serif", "#18382f", 250);
+    c.textAlign = "left";
+    y += 72;
+  }
+  text(
+    "Saved scores · " + new Date().toLocaleDateString("en-GB"),
+    60,
+    canvas.height - 32,
+    "19px sans-serif",
+    "#657269",
+  );
+  return new Promise((resolve, reject) =>
+    canvas.toBlob(
+      (b) => (b ? resolve(b) : reject(Error("Image export unavailable."))),
+      "image/png",
+    ),
+  );
+}
+
+
 // Source: js/core.js
 const STORAGE = {
   games: "marriage-web-games",
@@ -1497,6 +2490,8 @@ const defaultPrefs = {
   names: [],
   pointRate: 1,
   theme: "light",
+  groups: [],
+  ruleProfiles: [],
 };
 const rates = [0.25, 0.5, 1, 2, 10, 100];
 
@@ -1517,12 +2512,33 @@ const state = {
 };
 
 // Clear the inherited demonstration roster; keep customised player lists and games.
-if (JSON.stringify(state.prefs.names) === JSON.stringify(["Saroj", "Raj", "Padam", "Prakash", "Pragyan"])) {
+if (
+  JSON.stringify(state.prefs.names) ===
+  JSON.stringify(["Saroj", "Raj", "Padam", "Prakash", "Pragyan"])
+) {
   state.prefs.names = [];
   localStorage.setItem(STORAGE.prefs, JSON.stringify(state.prefs));
 }
 
 function save() {
+  const previous = load(STORAGE.games, []);
+  const history = recoverySnapshot(
+    previous,
+    state.games,
+    load("marriage-v2-recovery", []),
+  );
+  // Saving live games takes priority when browser storage is nearly full.
+  try {
+    localStorage.setItem("marriage-v2-recovery", JSON.stringify(history));
+  } catch {
+    localStorage.removeItem("marriage-v2-recovery");
+    try {
+      localStorage.setItem(
+        "marriage-v2-recovery",
+        JSON.stringify(history.slice(0, 1)),
+      );
+    } catch {}
+  }
   localStorage.setItem(STORAGE.games, JSON.stringify(state.games));
   localStorage.setItem(STORAGE.prefs, JSON.stringify(state.prefs));
 }
@@ -1581,6 +2597,10 @@ function navigate(view, gameId = state.gameId, roundId = null) {
   state.roundId = roundId;
   renderer();
   window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function draftKey(gameId, roundId) {
+  return "marriage-v2-draft-" + gameId + "-" + (roundId || "new");
 }
 
 
@@ -1828,7 +2848,7 @@ function configView() {
     )
     .join(
       "",
-    )}</select></div><div class="setting-row"><label for="default-rate">NPR per point</label><input id="default-rate" data-pref="pointRate" type="number" min="0" max="10000" step="0.01" value="${state.prefs.pointRate}"></div><div class="setting-row"><label>Appearance</label><button class="button secondary" data-action="toggle-theme">${state.prefs.theme === "dark" ? "Use light mode" : "Use dark mode"}</button></div><div class="form-section"><h2>Regular players</h2><div class="player-fields">${Array.from({ length: 8 }, (_, i) => `<div class="field"><label for="pref-${i}">Player ${i + 1}</label><input id="pref-${i}" data-pref-name="${i}" maxlength="40" value="${escape(state.prefs.names[i] || "")}" placeholder="Player ${i + 1}"></div>`).join("")}</div></div></section><aside class="card"><p class="eyebrow">YOUR DATA</p><h2>Keep a copy.</h2><p class="muted">${state.games.length} games saved in this browser. Backups contain names, rules and round scores.</p><button class="button primary full" data-action="export">Export backup</button><label class="button secondary full import-button">Import backup<input type="file" id="import-backup" accept="application/json,.json" hidden></label><p class="small muted">Import adds missing games; matching IDs stay unchanged.</p><p class="small muted">Older games keep their original USD unit. New games use NPR.</p></aside></div>`;
+    )}</select></div><div class="setting-row"><label for="default-rate">NPR per point</label><input id="default-rate" data-pref="pointRate" type="number" min="0" max="10000" step="0.01" value="${state.prefs.pointRate}"></div><div class="setting-row"><label>Appearance</label><button class="button secondary" data-action="toggle-theme">${state.prefs.theme === "dark" ? "Use light mode" : "Use dark mode"}</button></div><div class="form-section"><h2>Saved player groups</h2>${(state.prefs.groups || []).map((x, i) => `<div class="saved-profile"><span><strong>${escape(x.name)}</strong><small>${x.names.map(escape).join(", ")}</small></span><button class="text-button danger-text" data-action="remove-group" data-index="${i}">Remove</button></div>`).join("") || `<p class="muted small">Save a group when you start a game.</p>`}<h2>Saved rules</h2>${(state.prefs.ruleProfiles || []).map((x, i) => `<div class="saved-profile"><strong>${escape(x.name)}</strong><button class="text-button danger-text" data-action="remove-rules" data-index="${i}">Remove</button></div>`).join("") || `<p class="muted small">Save custom rules in game setup.</p>`}<h2>Regular players</h2><div class="player-fields">${Array.from({ length: 8 }, (_, i) => `<div class="field"><label for="pref-${i}">Player ${i + 1}</label><input id="pref-${i}" data-pref-name="${i}" maxlength="40" value="${escape(state.prefs.names[i] || "")}" placeholder="Player ${i + 1}"></div>`).join("")}</div></div></section><aside class="card"><p class="eyebrow">YOUR DATA</p><h2>Keep a copy.</h2><p class="muted">${state.games.length} games saved in this browser. Backups contain games, player groups and rule presets.</p><button class="button primary full" data-action="export">Export backup</button><label class="button secondary full import-button">Import backup<input type="file" id="import-backup" accept="application/json,.json" hidden></label><p class="small muted">Import adds missing games and saved profiles. Matching games stay unchanged.</p><button class="button secondary full" data-action="recovery">Recovery history</button><p class="small muted">${load("marriage-v2-recovery", []).length} restore points. Last 10 game changes, saved on this device. Export for protection against browser data loss.</p><p class="small muted">Older games keep their original USD unit. New games use NPR.</p></aside></div>`;
 }
 
 
@@ -1845,7 +2865,7 @@ function scoreboardView() {
   const currency = g.settings.currency || "USD";
   const sorted = [...g.players].sort((a, b) => total(g, b.id) - total(g, a.id));
   const transfers = settleBalances(g.players, g.rounds, g.settings.pointRate);
-  return `<button class="back-link" data-action="navigate" data-view="home">‹ My table</button><div class="page-heading"><div><p class="eyebrow">YOUR TABLE · ${g.players.length} PLAYERS</p><h1>${escape(g.name)}</h1><p class="muted">${g.rounds.length} ${g.rounds.length === 1 ? "round" : "rounds"} · ${money(g.settings.pointRate, currency)} per point</p></div><div class="board-actions"><button class="button secondary" data-action="share">Share scores</button><button class="button primary" data-action="add-round">＋ Add round</button></div></div><div class="board-layout"><section><div class="section-title"><h2>At the table</h2><span class="small muted">Net points</span></div><div class="leaderboard">${sorted
+  return `<button class="back-link" data-action="navigate" data-view="home">‹ My table</button><div class="page-heading"><div><p class="eyebrow">YOUR TABLE · ${g.players.length} PLAYERS</p><h1>${escape(g.name)}</h1><p class="muted">${g.rounds.length} ${g.rounds.length === 1 ? "round" : "rounds"} · ${money(g.settings.pointRate, currency)} per point</p></div><div class="board-actions"><button class="button secondary" data-action="scorecard">Scorecard</button><button class="button primary" data-action="add-round">＋ Add round</button></div></div><div class="board-layout"><section><div class="section-title"><h2>At the table</h2><span class="small muted">Net points</span></div><div class="leaderboard">${sorted
     .map((p, i) => {
       const t = total(g, p.id);
       return `<div class="leader-row"><span class="rank">${String(i + 1).padStart(2, "0")}</span><span class="avatar color-${i % 4}">${escape(p.name.charAt(0))}</span><div class="leader-name"><strong>${escape(p.name)}</strong><small>${g.rounds.filter((r) => r.winnerId === p.id).length} finished</small></div><div class="leader-score">${scoreBadge(t)}<small>${money(t * g.settings.pointRate, currency)}</small></div></div>`;
@@ -1873,7 +2893,13 @@ function roundView() {
   const g = getGame();
   if (!g) return '<div class="empty">Game unavailable</div>';
   const edit = g.rounds.find((r) => r.id === state.roundId);
+  const draft = load(draftKey(g.id, state.roundId), null);
+  const draftValid =
+    draft &&
+    draft.entries?.length === g.players.length &&
+    draft.entries.every((e, i) => e.playerId === g.players[i].id);
   const entries =
+    (draftValid ? draft.entries : null) ||
     edit?.entries ||
     g.players.map((p) => ({
       playerId: p.id,
@@ -1881,11 +2907,12 @@ function roundView() {
       status: "unseen",
       dubli: false,
     }));
-  return `<button class="back-link" data-action="navigate" data-view="scoreboard">‹ Scoreboard</button><div class="page-heading"><div><p class="eyebrow">${escape(g.name)} · ROUND ${edit?.number || g.rounds.length + 1}</p><h1>Who finished the round?</h1><p class="muted">Pick the winner. Add everyone’s maal.</p></div><span class="local-badge">${g.players.length} players</span></div><form id="round-form" data-editing="${edit?.id || ""}"><input type="hidden" id="winner" name="winner" value="${edit?.winnerId || ""}"><div class="round-layout"><div><div class="round-player-grid">${g.players
+  const selectedWinner = draftValid ? draft.winnerId : edit?.winnerId;
+  return `<button class="back-link" data-action="navigate" data-view="scoreboard">‹ Scoreboard</button><div class="page-heading"><div><p class="eyebrow">${escape(g.name)} · ROUND ${edit?.number || g.rounds.length + 1}</p><h1>Who finished the round?</h1><p class="muted">Tap the winner, mark Seen and enter maal. Draft saved automatically.</p></div><span class="local-badge">${g.players.length} players</span></div><form id="round-form" data-editing="${edit?.id || ""}"><input type="hidden" id="winner" name="winner" value="${selectedWinner || ""}"><div class="round-layout v2-round"><div><div class="round-player-grid">${g.players
     .map((p, i) => {
       const e = entries.find((e) => e.playerId === p.id);
-      const win = p.id === edit?.winnerId;
-      return `<section class="player-card ${win ? "is-winner" : ""}" data-player-card="${p.id}" data-status="${e.status}"><div class="player-top"><span class="avatar color-${i % 4}">${escape(p.name.charAt(0))}</span><strong class="player-name">${escape(p.name)}</strong><button type="button" class="winner-select ${win ? "selected" : ""}" data-pick-winner="${p.id}" aria-pressed="${win}" aria-label="Choose ${escape(p.name)} as winner">${win ? "♛ Winner" : "Set winner"}</button></div><div class="segmented" role="group" aria-label="${escape(p.name)} status"><button type="button" data-status="seen" aria-pressed="${e.status === "seen"}" ${win ? "disabled" : ""} class="${e.status === "seen" ? "selected seen" : ""}">Seen</button><button type="button" data-status="unseen" aria-pressed="${e.status === "unseen"}" ${win ? "disabled" : ""} class="${e.status === "unseen" ? "selected unseen" : ""}">Unseen</button></div><div class="maal-row"><label class="maal-label" for="maal-${p.id}">Maal points</label><div class="stepper"><button type="button" data-step="-1" aria-label="Decrease ${escape(p.name)} maal" ${e.status === "unseen" ? "disabled" : ""}>−</button><input id="maal-${p.id}" type="number" inputmode="numeric" min="0" max="10000" step="1" data-maal value="${e.maalPoints}" ${e.status === "unseen" ? "disabled" : ""}><button type="button" data-step="1" aria-label="Increase ${escape(p.name)} maal" ${e.status === "unseen" ? "disabled" : ""}>＋</button></div></div><div class="player-bottom"><label class="toggle"><input type="checkbox" data-dubli ${e.dubli ? "checked" : ""} ${e.status === "unseen" ? "disabled" : ""}> Dublee</label><span class="small muted">${e.status === "unseen" ? "Maal does not count" : "Maal counts"}</span></div></section>`;
+      const win = p.id === selectedWinner;
+      return `<section class="player-card ${win ? "is-winner" : ""}" data-player-card="${p.id}" data-status="${e.status}"><div class="player-top"><span class="avatar color-${i % 4}">${escape(p.name.charAt(0))}</span><strong class="player-name">${escape(p.name)}</strong><button type="button" class="winner-select ${win ? "selected" : ""}" data-pick-winner="${p.id}" aria-pressed="${win}" aria-label="Choose ${escape(p.name)} as winner">${win ? "♛ Winner" : "Set winner"}</button></div><div class="segmented" role="group" aria-label="${escape(p.name)} status"><button type="button" data-status="seen" aria-pressed="${e.status === "seen"}" ${win ? "disabled" : ""} class="${e.status === "seen" ? "selected seen" : ""}">Seen</button><button type="button" data-status="unseen" aria-pressed="${e.status === "unseen"}" ${win ? "disabled" : ""} class="${e.status === "unseen" ? "selected unseen" : ""}">Unseen</button></div><div class="maal-row"><label class="maal-label" for="maal-${p.id}">Maal points</label><div class="stepper"><button type="button" data-step="-1" aria-label="Decrease ${escape(p.name)} maal" ${e.status === "unseen" ? "disabled" : ""}>−</button><input id="maal-${p.id}" type="number" inputmode="numeric" min="0" max="10000" step="1" data-maal value="${e.maalPoints}" ${e.status === "unseen" ? "disabled" : ""}><button type="button" data-step="1" aria-label="Increase ${escape(p.name)} maal" ${e.status === "unseen" ? "disabled" : ""}>＋</button></div></div><div class="player-bottom"><label class="toggle"><input type="checkbox" data-dubli ${e.dubli ? "checked" : ""} ${e.status === "unseen" ? "disabled" : ""}> Dublee</label><span class="small muted"</span></div></section>`;
     })
     .join(
       "",
@@ -1949,7 +2976,7 @@ function playerFields(names) {
     .join("");
 }
 function newGameForm() {
-  return `<div class="modal-backdrop"><section class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" tabindex="-1"><div class="modal-header"><div><p class="eyebrow">GATHER YOUR TABLE</p><h2 id="modal-title">New game</h2></div><button class="close" data-action="close-modal" aria-label="Close">×</button></div><form id="new-game-form"><div class="modal-body"><div class="field"><label for="game-name">Game name</label><input id="game-name" name="name" value="${escape(new Date().toLocaleDateString("en-GB", { month: "short", day: "numeric" }) + " · Card night")}" maxlength="80" required></div><div class="field"><label for="player-count">Players</label><select id="player-count" name="count">${Array.from(
+  return `<div class="modal-backdrop"><section class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" tabindex="-1"><div class="modal-header"><div><p class="eyebrow">GATHER YOUR TABLE</p><h2 id="modal-title">New game</h2></div><button class="close" data-action="close-modal" aria-label="Close">×</button></div><form id="new-game-form"><div class="modal-body"><div class="field"><label for="game-name">Game name</label><input id="game-name" name="name" value="${escape(new Date().toLocaleDateString("en-GB", { month: "short", day: "numeric" }) + " · Card night")}" maxlength="80" required></div><div class="field"><label for="saved-group">Player group</label><select id="saved-group"><option value="">Enter players</option>${(state.prefs.groups || []).map((x, i) => `<option value="${i}">${escape(x.name)}</option>`).join("")}</select></div><div class="field"><label for="player-count">Players</label><select id="player-count" name="count">${Array.from(
     { length: 7 },
     (_, i) => i + 2,
   )
@@ -1959,7 +2986,7 @@ function newGameForm() {
     )
     .join(
       "",
-    )}</select><small>Standard: 2–5. Larger tables use your house rules.</small></div><div class="player-fields" id="new-player-fields">${playerFields(Array.from({ length: state.prefs.playerCount }, (_, i) => state.prefs.names[i] || ""))}</div><div class="field rate-field"><label for="rate">NPR per point</label><input id="rate" name="rate" type="number" min="0" max="10000" step="0.01" value="${state.prefs.pointRate}" required><small>0 = points only.</small></div><details class="house-rules" open><summary>Table rules <span>Choose before playing</span></summary><div class="field-grid"><div class="field"><label for="seen">Seen charge</label><input id="seen" name="seen" type="number" min="0" max="10000" value="3" required></div><div class="field"><label for="unseen">Unseen charge</label><input id="unseen" name="unseen" type="number" min="0" max="10000" value="10" required></div><div class="field"><label for="bonus">Dublee win bonus</label><input id="bonus" name="bonus" type="number" min="0" max="10000" value="0" required></div></div><label class="toggle"><input name="exempt" type="checkbox" checked> Dublee loser pays no Seen charge</label><label class="toggle"><input name="better" type="checkbox"> Better: double all points when anyone plays dublee</label><p class="muted small">Choose the rules everyone at your table agrees on.</p></details></div><div class="modal-footer"><button type="button" class="button ghost" data-action="close-modal">Cancel</button><button class="button primary">Start game</button></div></form></section></div>`;
+    )}</select><small>Standard: 2–5. Larger tables use your house rules.</small></div><div class="player-fields" id="new-player-fields">${playerFields(Array.from({ length: state.prefs.playerCount }, (_, i) => state.prefs.names[i] || ""))}</div><div class="field"><label for="group-name">Save this player group (optional)</label><input id="group-name" name="groupName" maxlength="80" placeholder="e.g. Friday table"></div><div class="field rate-field"><label for="rate">NPR per point</label><input id="rate" name="rate" type="number" min="0" max="10000" step="0.01" value="${state.prefs.pointRate}" required><small>0 = points only.</small></div><div class="field"><label for="rule-preset">Rule preset</label><select id="rule-preset"><option value="default">House defaults · Seen 3 / Unseen 10</option><option value="reference">Reference · Dublee bonus 5 / no exemption</option>${(state.prefs.ruleProfiles || []).map((x, i) => `<option value="${i}">${escape(x.name)}</option>`).join("")}</select></div><details class="house-rules"><summary>Table rules <span>Choose before playing</span></summary><div class="field-grid"><div class="field"><label for="seen">Seen charge</label><input id="seen" name="seen" type="number" min="0" max="10000" value="3" required></div><div class="field"><label for="unseen">Unseen charge</label><input id="unseen" name="unseen" type="number" min="0" max="10000" value="10" required></div><div class="field"><label for="bonus">Dublee win bonus</label><input id="bonus" name="bonus" type="number" min="0" max="10000" value="0" required></div></div><label class="toggle"><input name="exempt" type="checkbox" checked> Dublee loser pays no Seen charge</label><label class="toggle"><input name="better" type="checkbox"> Better: double all points when anyone plays dublee</label><p class="muted small">Choose the rules everyone at your table agrees on.</p><div class="field"><label for="rule-name">Save these rules (optional)</label><input id="rule-name" name="ruleName" maxlength="80" placeholder="e.g. Family rules"></div></details></div><div class="modal-footer"><button type="button" class="button ghost" data-action="close-modal">Cancel</button><button class="button primary">Start game</button></div></form></section></div>`;
 }
 function confirmModal(
   title,
@@ -2015,7 +3042,11 @@ function render() {
     state.prefs.theme === "dark" ? "dark" : "light";
   preview();
   const form = document.querySelector("#round-form");
-  if (form) form.dataset.baseline = JSON.stringify([readEntries(), document.querySelector("#winner").value]);
+  if (form)
+    form.dataset.baseline = JSON.stringify([
+      readEntries(),
+      document.querySelector("#winner").value,
+    ]);
 }
 function showModal(html) {
   restoreFocus = document.activeElement;
@@ -2057,6 +3088,12 @@ function preview() {
   const submit = form.querySelector("[type=submit]");
   submit.disabled = true;
   document.querySelector("#round-error").textContent = "";
+  try {
+    localStorage.setItem(
+      draftKey(state.gameId, state.roundId),
+      JSON.stringify({ entries, winnerId: winner }),
+    );
+  } catch {}
   if (!winner) return;
   try {
     const { scores, multiplier } = calculateRound(
@@ -2142,9 +3179,51 @@ document.addEventListener("click", (e) => {
   const a = b.dataset.action;
   if (a === "navigate") {
     const form = document.querySelector("#round-form");
-    const changed = form && form.dataset.baseline !== JSON.stringify([readEntries(), document.querySelector("#winner").value]);
-    if (changed) confirm("Leave this round?", "Unsaved changes will be lost.", () => navigate(b.dataset.view), "Leave round");
+    const changed =
+      form &&
+      form.dataset.baseline !==
+        JSON.stringify([
+          readEntries(),
+          document.querySelector("#winner").value,
+        ]);
+    if (changed)
+      confirm(
+        "Leave this round?",
+        "Your draft is saved. Reopen this round to continue.",
+        () => navigate(b.dataset.view),
+        "Leave round",
+      );
     else navigate(b.dataset.view);
+  }
+  if (a === "scorecard") showScorecard();
+  if (a === "download-card") downloadCard();
+  if (a === "share-card") shareCard();
+  if (a === "recovery") showRecovery();
+  if (a === "restore-point") {
+    const point = load("marriage-v2-recovery", [])[Number(b.dataset.index)];
+    if (point)
+      confirm(
+        "Restore games?",
+        "Replace your current games with this restore point. Your current games will become a new restore point.",
+        () => {
+          try {
+            validateBackup({ version: 1, games: point.games });
+            state.games = structuredClone(point.games);
+            persist();
+            navigate("home", null);
+            toast("Games restored");
+          } catch (error) {
+            toast(error.message);
+          }
+        },
+        "Restore games",
+      );
+  }
+  if (a === "remove-group" || a === "remove-rules") {
+    const key = a === "remove-group" ? "groups" : "ruleProfiles";
+    state.prefs[key].splice(Number(b.dataset.index), 1);
+    persist();
+    render();
   }
   if (a === "new-game") showModal(newGameForm());
   if (a === "close-modal") closeModal();
@@ -2155,7 +3234,10 @@ document.addEventListener("click", (e) => {
     confirm(
       "Discard this round?",
       "Unsaved changes will be lost.",
-      () => navigate("scoreboard", state.gameId),
+      () => {
+        localStorage.removeItem(draftKey(state.gameId, state.roundId));
+        navigate("scoreboard", state.gameId);
+      },
       "Discard",
     );
   if (a === "toggle-theme") {
@@ -2172,7 +3254,7 @@ document.addEventListener("click", (e) => {
     const roundId = a === "undo-round" ? g.rounds.at(-1)?.id : state.roundId;
     confirm(
       a === "undo-round" ? "Undo last round?" : "Delete round?",
-      "This round will be removed and totals recalculated.",
+      "This round will be removed. Recovery history keeps a restore point.",
       () => {
         g.rounds = g.rounds.filter((r) => r.id !== roundId);
         g.rounds.forEach((r, i) => (r.number = i + 1));
@@ -2187,7 +3269,7 @@ document.addEventListener("click", (e) => {
     const gameId = b.dataset.gameId || state.gameId;
     confirm(
       "Delete this game?",
-      "All its rounds will be removed. Export a backup first if you need a copy.",
+      "All its rounds will be removed. You can restore the game from Recovery history in Settings.",
       () => {
         state.games = state.games.filter((g) => g.id !== gameId);
         persist();
@@ -2239,6 +3321,30 @@ document.addEventListener("input", (e) => {
   }
 });
 document.addEventListener("change", async (e) => {
+  if (e.target.id === "saved-group" && e.target.value !== "") {
+    const group = state.prefs.groups[Number(e.target.value)];
+    document.querySelector("#player-count").value = group.names.length;
+    document.querySelector("#new-player-fields").innerHTML = playerFields(
+      group.names,
+    );
+  }
+  if (e.target.id === "rule-preset") {
+    const value = e.target.value;
+    const rules =
+      value === "default"
+        ? ruleDefaults
+        : value === "reference"
+          ? { ...ruleDefaults, dubleeBonus: 5, dubleeExempt: false }
+          : state.prefs.ruleProfiles[Number(value)].settings;
+    for (const [name, key] of [
+      ["seen", "seenPoint"],
+      ["unseen", "unseenPoint"],
+      ["bonus", "dubleeBonus"],
+    ])
+      document.querySelector(`[name="${name}"]`).value = rules[key];
+    document.querySelector('[name="exempt"]').checked = rules.dubleeExempt;
+    document.querySelector('[name="better"]').checked = rules.better;
+  }
   if (e.target.id === "player-count") {
     const values = [...document.querySelectorAll('[name^="player-"]')].map(
       (i) => i.value,
@@ -2265,6 +3371,24 @@ document.addEventListener("change", async (e) => {
           state.games.push(game);
           added++;
         }
+      for (const [key, validate] of [
+        ["groups", validateTableProfile],
+        ["ruleProfiles", validateRuleProfile],
+      ]) {
+        for (const profile of Array.isArray(data.prefs?.[key])
+          ? data.prefs[key].slice(0, 30)
+          : []) {
+          try {
+            validate(profile);
+            if (
+              !state.prefs[key].some(
+                (x) => x.name.toLowerCase() === profile.name.toLowerCase(),
+              )
+            )
+              state.prefs[key].push(profile);
+          } catch {}
+        }
+      }
       persist();
       render();
       toast(`${added} games imported`);
@@ -2305,6 +3429,21 @@ document.addEventListener("submit", (e) => {
       rounds: [],
       createdAt: new Date().toISOString(),
     };
+    const groupName = String(f.get("groupName") || "").trim();
+    const ruleName = String(f.get("ruleName") || "").trim();
+    if (groupName) {
+      const profile = { name: groupName, names: players.map((p) => p.name) };
+      validateTableProfile(profile);
+      state.prefs.groups = upsertProfile(state.prefs.groups, profile);
+    }
+    if (ruleName) {
+      const profile = { name: ruleName, settings: { ...g.settings } };
+      validateRuleProfile(profile);
+      state.prefs.ruleProfiles = upsertProfile(
+        state.prefs.ruleProfiles,
+        profile,
+      );
+    }
     state.games.unshift(g);
     persist();
     closeModal();
@@ -2329,7 +3468,8 @@ document.addEventListener("submit", (e) => {
       };
       if (existing) g.rounds[g.rounds.indexOf(existing)] = round;
       else g.rounds.push(round);
-      persist();
+      if (!persist()) return;
+      localStorage.removeItem(draftKey(g.id, state.roundId));
       navigate("scoreboard", g.id);
       toast("Round saved");
     } catch (error) {
@@ -2387,6 +3527,59 @@ document.querySelector("#install-button").onclick = async () => {
 };
 setRenderer(render);
 render();
+
+function upsertProfile(profiles, profile) {
+  return [
+    profile,
+    ...(profiles || []).filter(
+      (x) => x.name.toLowerCase() !== profile.name.toLowerCase(),
+    ),
+  ].slice(0, 30);
+}
+function showRecovery() {
+  const history = load("marriage-v2-recovery", []);
+  showModal(
+    `<div class="modal-backdrop"><section class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title"><div class="modal-header"><h2 id="modal-title">Recovery history</h2><button class="close" data-action="close-modal" aria-label="Close">×</button></div><div class="modal-body"><p class="muted">Restore all games to a previous point. Current games are saved before restoration.</p>${history.map((x, i) => `<div class="saved-profile"><span><strong>${escape(new Date(x.createdAt).toLocaleString())}</strong><small>${x.games.length} games · ${x.games.reduce((n, g) => n + g.rounds.length, 0)} rounds</small></span><button class="button secondary" data-action="restore-point" data-index="${i}">Restore</button></div>`).join("") || "<p>No game changes yet.</p>"}</div></section></div>`,
+  );
+}
+let cardBlob = null,
+  cardUrl = null;
+async function showScorecard() {
+  try {
+    cardBlob = await scorecardImage(getGame());
+    if (cardUrl) URL.revokeObjectURL(cardUrl);
+    cardUrl = URL.createObjectURL(cardBlob);
+    showModal(
+      `<div class="modal-backdrop"><section class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title"><div class="modal-header"><h2 id="modal-title">Share your table</h2><button class="close" data-action="close-modal" aria-label="Close">×</button></div><div class="modal-body"><img class="scorecard-image" src="${cardUrl}" alt="Scorecard with player totals and settlement"><p class="small muted">Names and scores are included in the image.</p></div><div class="modal-footer scorecard-actions"><button class="button secondary" data-action="share">Share text</button><a class="button secondary" href="${cardUrl}" download="marriage-scorecard.png">Download PNG</a><button class="button primary" data-action="share-card">Share image</button></div></section></div>`,
+    );
+  } catch (error) {
+    toast(error.message);
+  }
+}
+function downloadCard() {
+  if (!cardUrl) return;
+  const a = document.createElement("a");
+  a.href = cardUrl;
+  a.download = "marriage-scorecard.png";
+  document.body.append(a);
+  a.click();
+  a.remove();
+  toast("Scorecard downloaded");
+}
+async function shareCard() {
+  if (!cardBlob) return;
+  const file = new File([cardBlob], "marriage-scorecard.png", {
+    type: "image/png",
+  });
+  try {
+    if (navigator.canShare?.({ files: [file] }))
+      await navigator.share({ files: [file], title: "Marriage scorecard" });
+    else downloadCard();
+  } catch (error) {
+    if (error.name !== "AbortError")
+      toast("Sharing unavailable. Download the PNG instead.");
+  }
+}
 
 </script>
     <script>
