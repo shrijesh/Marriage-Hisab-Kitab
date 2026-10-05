@@ -1,94 +1,36 @@
-# Marriage Hisab Kitab — Web
+# Marriage · Hisab Kitab
 
-Marriage Hisab Kitab is a vanilla JavaScript browser version of the Marriage point calculator for the Nepali Marriage card game.
+[Open the app](https://shrijesh.github.io/Marriage-Hisab-Kitab/)
 
-It has no third-party runtime dependencies, build bundler, server API, or account system. Game data is stored locally in the browser with `localStorage`.
+A refined mobile-first scorekeeper for Nepali Marriage. No account needed; games stay in each player's browser.
 
-Developer: Saroj Poudyal
+- 2–8 players, direct maal entry and live scoring.
+- Seen/Unseen status, configurable dublee rules and optional Better doubling.
+- Round history, editing, undo, NPR totals and net-balance settlement.
+- Backup export/import, dark mode and offline startup after an online visit.
 
-## Features
+Share the app link with friends. Sessions are local to each device; this is a scorekeeper, not a live multiplayer card game. Clearing browser data removes local sessions unless backed up.
 
-- Home, Games history, Config, Rules, New Game, Scoreboard, Round Details, and round editor pages
-- 2–8 players with configurable default names and point rate
-- Seen/Unseen status, Dubli, Maal stepper, and winner selection
-- Live round scores, cumulative totals, and dollar amounts
-- Round editing and deletion
-- Game deletion and scoreboard sharing/copying
-- Responsive desktop and mobile layouts
-- Installable as a PWA on supported desktop and mobile browsers
-- Offline app-shell caching through a service worker
+## Installation
 
-## Code structure
+Android Chrome: Install app/Add to home screen. iPhone Safari: Share → Add to Home Screen. Installation options depend on the browser.
 
-```text
-app.js                 Application controller and event handlers
-js/core.js             Shared state, persistence, navigation, and helpers
-js/modals.js           New Game and confirmation modal markup
-js/views/               One module per application view
-styles/styles.css      Application styles
-manifest.webmanifest   PWA install metadata and icons
-sw.js                  Offline service worker
+## Hosting and maintenance
+
+GitHub Pages publishes `main`, repository root. No build or external runtime dependencies.
+
+The deployed application is self-contained in `index.html`, including styles and JavaScript. JavaScript sections are labelled with their source-module names. `sw.js` caches the app for offline use; `manifest.webmanifest` defines installation metadata. Existing `app.js`, `js/` and `styles/` files are retained from the original fork and are not loaded by the standalone entry page.
+
+For local use:
+
+```sh
+python3 -m http.server 8765 --bind 127.0.0.1
 ```
 
-## Requirements
+Open http://127.0.0.1:8765.
 
-- macOS, Linux, or Windows
-- Python 3 for the local static server
-- Node.js for the JavaScript syntax check used by `just build`
-- `just` command runner
+## Rules and credit
 
-## Run on localhost
+House rules vary. The in-app Rules page explains implemented conventions and links to the scoring references. New games default to the original app's dublee-exemption convention; it can be changed before playing. Maal totals are entered manually.
 
-From the web app folder:
-
-```bash
-cd "/Users/<user>Marriage-Hisab-Kitab"
-just run
-```
-
-`just run` opens [http://localhost:8000](http://localhost:8000) automatically in the default OS browser. Stop the server with `Ctrl+C`.
-
-You can also use the alias:
-
-```bash
-just serve
-```
-
-## Install on a device
-
-The app is a Progressive Web App. Install prompts require `localhost` during development or HTTPS when deployed.
-
-- Chrome, Edge, and other Chromium browsers: open the app, then use the Install icon in the address bar or the in-app **Install** button.
-- Firefox: use the browser’s site/application installation option when available. Firefox support varies by platform and version.
-- Safari on macOS: use **File > Add to Dock**.
-- Safari on iPhone or iPad: open the HTTPS site in Safari, tap **Share**, then **Add to Home Screen**.
-- Android Chrome: open the site and choose **Install app** or **Add to Home screen**.
-- Windows: install from Edge/Chrome’s address-bar install icon; the app opens as a standalone window.
-
-The service worker caches the app shell for repeat visits and offline startup. Game data remains local to each browser/device and is not synchronized between devices.
-
-## Build and validate
-
-This is a static frontend, so the build command runs validation checks instead of producing a compiled bundle:
-
-```bash
-just build
-```
-
-The build confirms the required files exist, validates `app.js` with Node.js, and stops any process already using port `8000`. To run only the checks without touching the port:
-
-```bash
-just check
-```
-
-List all available commands:
-
-```bash
-just
-```
-
-## License and disclaimer
-
-This is a free app shared under the GNU General Public License. You are free to fork, modify, and edit it for your own use.
-
-This app is for fun and entertainment only. Do not use real money. Any virtual money shown is purely for bragging rights and has no real-world value.
+Original developer: Saroj Poudyal. Original source: [cynicandroid/Marriage-Hisab-Kitab](https://github.com/cynicandroid/Marriage-Hisab-Kitab). Original project describes its licence as GNU General Public License. Entertainment scorekeeping only; no payments processed.
