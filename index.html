@@ -2,46 +2,2323 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#c92a3b" />
-    <meta name="description" content="Marriage Hisab Kitab — a local Marriage card game point calculator." />
-    <meta name="mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-    <meta name="apple-mobile-web-app-title" content="Marriage Hisab Kitab" />
-    <title>Marriage Hisab Kitab</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#103f35" />
+    <meta
+      name="description"
+      content="A simple, offline scorekeeper for Nepali Marriage. Maal, rounds and clear settlement."
+    />
+    <title>Marriage · Hisab Kitab</title>
     <link rel="manifest" href="manifest.webmanifest" />
     <link rel="apple-touch-icon" href="assets/icons/icon-192.png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2216%22%20fill%3D%22%23103f35%22/%3E%3Ctext%20x%3D%2232%22%20y%3D%2249%22%20text-anchor%3D%22middle%22%20font-size%3D%2252%22%20fill%3D%22%23edcb82%22%3E%E2%99%A0%3C/text%3E%3C/svg%3E">
+    <style>
+:root {
+  color-scheme: light;
+  --bg: #f4f6f5;
+  --surface: #fff;
+  --ink: #193b33;
+  --muted: #66756f;
+  --line: #e0e7e3;
+  --green: #103f35;
+  --positive: #147457;
+  --negative: #b74442;
+  --soft: #eaf2ee;
+  --shadow: 0 8px 30px #193b3306;
+  font-family:
+    Inter,
+    "Avenir Next",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  font-size: 16px;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.5;
+}
+button,
+input,
+select {
+  font: inherit;
+}
+button,
+a,
+input,
+select,
+summary {
+  -webkit-tap-highlight-color: transparent;
+}
+button {
+  cursor: pointer;
+}
+button:disabled {
+  cursor: default;
+  opacity: 0.45;
+}
+button {
+  border: 0;
+}
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+summary:focus-visible {
+  outline: 3px solid #bf964c;
+  outline-offset: 3px;
+}
+a {
+  color: var(--positive);
+}
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+h1 {
+  font-size: clamp(1.8rem, 3.5vw, 2.7rem);
+  letter-spacing: -0.05em;
+  line-height: 1.17;
+  font-weight: 650;
+}
+h2 {
+  font-size: 1.35rem;
+  line-height: 1.3;
+  letter-spacing: -0.025em;
+}
+h3 {
+  font-size: 1rem;
+}
+p {
+  margin-top: 0.6rem;
+}
+small,
+.small {
+  font-size: 0.875rem;
+}
+.muted {
+  color: var(--muted);
+}
+.eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  font-weight: 700;
+  margin: 0 0 0.7rem;
+  color: var(--muted);
+}
+.topbar {
+  height: 98px;
+  max-width: 1232px;
+  margin: auto;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+  gap: 24px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: none;
+  color: var(--ink);
+  font-size: 1.25rem;
+  font-weight: 750;
+  text-align: left;
+  line-height: 1.1;
+}
+.brand small {
+  display: block;
+  font-size: 0.65rem;
+  letter-spacing: 0.17em;
+  margin-top: 7px;
+  font-weight: 600;
+  color: var(--muted);
+}
+.brand-mark {
+  width: 44px;
+  height: 48px;
+  background: var(--green);
+  border-radius: 12px;
+  color: #f1d08c;
+  display: grid;
+  place-items: center;
+  font-size: 2rem;
+}
+.desktop-nav {
+  display: flex;
+  gap: 8px;
+}
+.desktop-nav button {
+  padding: 10px 18px;
+  background: transparent;
+  border-radius: 8px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+.desktop-nav button.active {
+  background: var(--soft);
+  color: var(--ink);
+}
+.topbar-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.icon-button {
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--ink);
+  font-weight: 700;
+}
+.button {
+  min-height: 46px;
+  padding: 12px 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 9px;
+  font-size: 0.9rem;
+  font-weight: 650;
+  line-height: 1.35;
+  border: 1px solid transparent;
+  transition:
+    background 0.15s,
+    transform 0.15s;
+}
+.button:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+.primary,
+.success {
+  background: var(--green);
+  color: #fff;
+}
+.secondary {
+  background: var(--surface);
+  border-color: var(--line);
+  color: var(--ink);
+}
+.gold {
+  background: #f1d08c;
+  color: #193b33;
+}
+.ghost {
+  background: transparent;
+  color: var(--muted);
+}
+.danger {
+  background: #ab3838;
+  color: white;
+}
+.text-button,
+.back-link {
+  background: transparent;
+  color: var(--positive);
+  font-size: 0.875rem;
+  padding: 10px 0;
+  font-weight: 600;
+}
+.danger-text {
+  color: var(--negative);
+}
+.full {
+  width: 100%;
+}
+.back-link {
+  display: block;
+  margin-bottom: 16px;
+  color: var(--muted);
+}
+#main-content {
+  max-width: 1232px;
+  padding: 42px 40px 56px;
+  margin: auto;
+  min-height: calc(100vh - 178px);
+}
+.page-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 30px;
+}
+.local-badge {
+  border: 1px solid var(--line);
+  padding: 7px 12px;
+  color: var(--muted);
+  font-size: 0.75rem;
+  border-radius: 30px;
+  white-space: nowrap;
+}
+.welcome-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 24px;
+}
+.table-banner {
+  position: relative;
+  overflow: hidden;
+  min-height: 310px;
+  background: var(--green);
+  border-radius: 18px;
+  padding: 34px 36px 24px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.table-banner .eyebrow {
+  color: #b9d1c6;
+}
+.table-banner h2 {
+  font-size: 2.6rem;
+  line-height: 1.07;
+  letter-spacing: -0.04em;
+  margin: 14px 0 10px;
+  font-weight: 500;
+}
+.table-banner p {
+  color: #c1d4cb;
+  margin-bottom: 24px;
+  font-size: 0.9rem;
+}
+.suit-mark {
+  position: absolute;
+  right: 35px;
+  top: 32px;
+  color: #f1d08c;
+  font-size: 11rem;
+  line-height: 1;
+  transform: rotate(12deg);
+  opacity: 0.85;
+  pointer-events: none;
+}
+.table-banner > div:first-child {
+  z-index: 1;
+}
+.banner-bottom {
+  padding-top: 28px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: #b9d1c6;
+}
+.quick-card {
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--surface);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-shadow: var(--shadow);
+}
+.quick-card h2 {
+  font-size: 1.6rem;
+  overflow-wrap: anywhere;
+}
+.quick-card > .button {
+  margin-top: auto;
+}
+.avatar-stack {
+  display: flex;
+  margin: 22px 0;
+}
+.avatar-stack .avatar {
+  margin-right: -8px;
+  border: 3px solid var(--surface);
+}
+.simple-steps {
+  padding-left: 20px;
+  margin: 20px 0;
+  line-height: 2.3;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+.simple-steps li::marker {
+  color: var(--positive);
+  font-weight: 700;
+}
+.section {
+  margin-top: 38px;
+}
+.section-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+.section-title .eyebrow {
+  margin-bottom: 4px;
+}
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.card,
+.quick-card,
+.settlement-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+.card {
+  padding: 24px;
+}
+.game-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  text-align: left;
+  color: var(--ink);
+  padding: 22px;
+}
+.game-card-copy {
+  flex: 1;
+  min-width: 0;
+}
+.game-card h3 {
+  overflow-wrap: anywhere;
+}
+.game-card p,
+.game-card small {
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+.game-card small {
+  display: block;
+  margin-top: 4px;
+}
+.game-icon {
+  width: 44px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  background: var(--soft);
+  font-size: 1.5rem;
+  border-radius: 9px;
+}
+.chevron {
+  color: var(--muted);
+  font-size: 1.4rem;
+}
+.empty {
+  border: 1px dashed var(--line);
+  border-radius: 14px;
+  text-align: center;
+  padding: 36px 20px;
+  background: var(--surface);
+}
+.empty p {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+.empty .button {
+  margin-top: 18px;
+}
+.empty-symbol {
+  color: var(--muted);
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 10px;
+}
+.site-footer {
+  max-width: 1232px;
+  margin: auto;
+  padding: 20px 40px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+.mobile-nav {
+  display: none;
+}
+.modal-open {
+  overflow: hidden;
+}
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: #0a211c80;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  backdrop-filter: blur(5px);
+}
+.modal {
+  width: 100%;
+  max-width: 620px;
+  max-height: 90dvh;
+  overflow: auto;
+  border-radius: 18px;
+  background: var(--surface);
+  box-shadow: 0 24px 100px #0004;
+}
+.modal.compact {
+  max-width: 440px;
+}
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 28px;
+  border-bottom: 1px solid var(--line);
+}
+.modal-header .eyebrow {
+  margin-bottom: 4px;
+}
+.close {
+  background: var(--soft);
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  color: var(--ink);
+  font-size: 1.5rem;
+}
+.modal-body {
+  padding: 24px 28px;
+}
+.modal-footer {
+  padding: 18px 28px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  border-top: 1px solid var(--line);
+  position: sticky;
+  bottom: 0;
+  background: var(--surface);
+}
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-bottom: 18px;
+}
+.field label {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+.field small {
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+input:not([type="checkbox"]),
+select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--ink);
+  min-height: 46px;
+}
+input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--green);
+  flex-shrink: 0;
+}
+.player-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 16px;
+}
+.field-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+.rate-field {
+  margin-top: 4px;
+}
+.house-rules {
+  margin-top: 22px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 16px 18px;
+}
+.house-rules summary {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+.house-rules summary span {
+  font-size: 0.75rem;
+  color: var(--muted);
+  font-weight: 400;
+  margin-left: 10px;
+}
+.house-rules[open] summary {
+  margin-bottom: 18px;
+}
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.875rem;
+  margin: 8px 0;
+}
+.round-layout,
+.board-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 310px;
+  gap: 28px;
+  align-items: start;
+}
+.round-player-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.player-card {
+  border: 1px solid var(--line);
+  background: var(--surface);
+  border-radius: 14px;
+  padding: 20px;
+}
+.player-card.is-winner {
+  border: 2px solid #bd9859;
+  padding: 19px;
+  background: linear-gradient(145deg, var(--surface), var(--soft));
+}
+.player-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: inline-grid;
+  place-items: center;
+  flex-shrink: 0;
+  background: #dcebe5;
+  color: #225d46;
+  font-weight: 650;
+  font-size: 0.875rem;
+}
+.color-1 {
+  background: #eee7d9;
+  color: #826b35;
+}
+.color-2 {
+  background: #e3e9f0;
+  color: #476681;
+}
+.color-3 {
+  background: #eee4e8;
+  color: #885a72;
+}
+.player-name {
+  flex: 1;
+  font-size: 0.95rem;
+  overflow-wrap: anywhere;
+  min-width: 40px;
+}
+.winner-select {
+  font-size: 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 8px;
+  background: var(--surface);
+  color: var(--muted);
+  min-height: 36px;
+}
+.winner-select.selected {
+  background: #efddb0;
+  color: #5d471b;
+  border-color: transparent;
+  font-weight: 700;
+}
+.segmented {
+  display: flex;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 3px;
+  gap: 3px;
+}
+.segmented button {
+  flex: 1;
+  min-height: 36px;
+  background: transparent;
+  border-radius: 5px;
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+.segmented button.selected {
+  background: var(--surface);
+  color: var(--ink);
+  box-shadow: 0 1px 4px #0001;
+  font-weight: 600;
+}
+.maal-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 20px 0 14px;
+}
+.maal-label {
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+.stepper {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.stepper button {
+  background: var(--bg);
+  color: var(--ink);
+  width: 36px;
+  height: 40px;
+  font-size: 1.2rem;
+}
+.stepper input {
+  width: 54px;
+  min-height: 40px;
+  padding: 5px;
+  text-align: center;
+  border: 0;
+  border-radius: 0;
+  font-weight: 700;
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+.stepper input::-webkit-inner-spin-button,
+.stepper input::-webkit-outer-spin-button {
+  appearance: none;
+}
+.player-bottom {
+  border-top: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 8px;
+  gap: 5px;
+}
+.player-bottom .small {
+  font-size: 0.75rem;
+}
+.preview-panel {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 24px;
+  position: sticky;
+  top: 24px;
+}
+.maal-total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+  padding: 4px 0 20px;
+  margin-bottom: 12px;
+}
+.maal-total span {
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+.maal-total strong {
+  font-size: 2rem;
+  font-weight: 500;
+}
+.preview-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  font-size: 0.9rem;
+  gap: 12px;
+}
+.preview-row > span:first-child {
+  overflow-wrap: anywhere;
+}
+.preview-panel .full {
+  margin-top: 24px;
+}
+.preview-panel > .small {
+  text-align: center;
+  font-size: 0.75rem;
+}
+.preview-panel > .text-button {
+  display: block;
+  margin: auto;
+}
+.score-number {
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.positive {
+  color: var(--positive);
+}
+.negative {
+  color: var(--negative);
+}
+.zero {
+  color: var(--muted);
+}
+.better-badge {
+  background: var(--soft);
+  border-radius: 6px;
+  padding: 8px;
+  font-size: 0.75rem;
+  color: var(--positive);
+}
+.board-actions {
+  display: flex;
+  gap: 12px;
+}
+.leaderboard {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+}
+.leader-row {
+  display: flex;
+  align-items: center;
+  padding: 19px 22px;
+  gap: 14px;
+  border-bottom: 1px solid var(--line);
+}
+.leader-row:last-child {
+  border: 0;
+}
+.rank {
+  font-size: 0.75rem;
+  color: var(--muted);
+  width: 18px;
+}
+.leader-name {
+  flex: 1;
+  min-width: 0;
+}
+.leader-name strong {
+  font-size: 0.95rem;
+  overflow-wrap: anywhere;
+}
+.leader-name small,
+.leader-score small {
+  display: block;
+  color: var(--muted);
+  font-size: 0.75rem;
+  margin-top: 3px;
+}
+.leader-score {
+  text-align: right;
+}
+.leader-score .score-number {
+  font-size: 1.3rem;
+  letter-spacing: -0.04em;
+}
+.settlement-card {
+  padding: 24px;
+}
+.settlement-card h2 {
+  font-size: 1.3rem;
+}
+.transfer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--line);
+  padding-top: 16px;
+  margin-top: 16px;
+  gap: 16px;
+  font-size: 0.875rem;
+}
+.transfer small {
+  display: block;
+  color: var(--muted);
+  font-size: 0.75rem;
+  margin-top: 3px;
+}
+.transfer strong {
+  overflow-wrap: anywhere;
+}
+.settlement-empty {
+  margin-top: 24px;
+  background: var(--bg);
+  padding: 20px;
+  border-radius: 10px;
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+.board-note {
+  padding: 22px 4px;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+.board-note strong {
+  color: var(--ink);
+  font-size: 0.875rem;
+}
+.history-title {
+  margin-top: 30px;
+}
+.table-wrap {
+  overflow: auto;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+.score-table {
+  width: 100%;
+  border-collapse: collapse;
+  white-space: nowrap;
+  font-size: 0.875rem;
+  text-align: right;
+}
+.score-table th,
+.score-table td {
+  padding: 15px 18px;
+  border-bottom: 1px solid var(--line);
+}
+.score-table th {
+  font-weight: 500;
+  color: var(--muted);
+  background: var(--bg);
+  font-size: 0.8rem;
+}
+.score-table th:first-child,
+.score-table td:first-child {
+  text-align: left;
+}
+.score-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+.round-link {
+  color: var(--ink);
+  background: none;
+  min-height: 24px;
+}
+.round-link span {
+  color: var(--muted);
+  font-size: 0.75rem;
+  margin-left: 5px;
+}
+.round-winner {
+  color: #a68036;
+  margin-left: 5px;
+}
+.settings-layout,
+.rules-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+.setting-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.9rem;
+}
+.setting-row input,
+.setting-row select {
+  max-width: 140px;
+}
+.setting-row small {
+  display: block;
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+.form-section {
+  margin-top: 24px;
+}
+.form-section h2 {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+.import-button {
+  margin-top: 12px;
+  cursor: pointer;
+}
+.settings-layout aside > .button {
+  margin-top: 18px;
+}
+.rule {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.9rem;
+}
+.rule p,
+.rules-layout p {
+  color: var(--muted);
+}
+.rule:last-child {
+  border-bottom: 0;
+}
+.formula {
+  background: var(--soft);
+  padding: 18px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin: 20px 0;
+}
+.rule-list {
+  margin: 16px 0 24px;
+}
+.rules-layout .table-wrap {
+  margin-top: 16px;
+}
+.source-card {
+  margin-top: 20px;
+}
+.source-card a {
+  display: block;
+  font-size: 0.875rem;
+  margin-top: 12px;
+}
+.detail-actions {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+.detail-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+}
+.detail-info {
+  flex: 1;
+  min-width: 0;
+}
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+.pill {
+  font-size: 0.75rem;
+  background: var(--soft);
+  border-radius: 6px;
+  padding: 4px 8px;
+}
+.big-score {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.winner-label {
+  font-size: 0.75rem;
+  color: #9a7835;
+  margin-left: 8px;
+}
+.toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translate(-50%, 20px);
+  background: var(--green);
+  color: white;
+  padding: 12px 22px;
+  border-radius: 10px;
+  max-width: 90vw;
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.2s;
+  font-size: 0.9rem;
+  box-shadow: 0 8px 30px #0003;
+}
+.toast.show {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+[hidden] {
+  display: none !important;
+}
+[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #101d19;
+  --surface: #182a24;
+  --ink: #e3eee8;
+  --muted: #a2b9ac;
+  --line: #2d443a;
+  --green: #245c47;
+  --soft: #243e32;
+  --positive: #81ceaa;
+  --negative: #f59991;
+}
+.game-card-main {
+  background: none;
+  color: var(--ink);
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex: 1;
+  text-align: left;
+}
+.rules-layout .card h2 {
+  margin-bottom: 12px;
+}
+@media (min-width: 1250px) {
+  .round-player-grid {
+    gap: 20px;
+  }
+  .player-card {
+    padding: 24px;
+  }
+  .player-card.is-winner {
+    padding: 23px;
+  }
+}
+@media (max-width: 1000px) {
+  .round-layout,
+  .board-layout {
+    grid-template-columns: minmax(0, 1fr) 270px;
+    gap: 20px;
+  }
+  .round-player-grid {
+    grid-template-columns: 1fr;
+  }
+  .welcome-grid {
+    grid-template-columns: 1.3fr 1fr;
+  }
+  .suit-mark {
+    right: 20px;
+    top: 60px;
+    font-size: 8rem;
+  }
+  .table-banner h2 {
+    font-size: 2.2rem;
+  }
+  .player-card {
+    padding: 18px;
+  }
+  .player-card.is-winner {
+    padding: 17px;
+  }
+}
+@media (max-width: 760px) {
+  .topbar {
+    padding: 0 20px;
+    height: 78px;
+  }
+  .desktop-nav {
+    display: none;
+  }
+  #main-content {
+    padding: 28px 20px 40px;
+    min-height: calc(100vh - 180px);
+  }
+  .page-heading {
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+  }
+  .page-heading .local-badge {
+    display: none;
+  }
+  .page-heading p.muted {
+    font-size: 0.875rem;
+  }
+  .welcome-grid {
+    grid-template-columns: 1fr;
+  }
+  .table-banner {
+    min-height: 285px;
+    padding: 28px;
+  }
+  .table-banner h2 {
+    font-size: 2.4rem;
+  }
+  .suit-mark {
+    top: 30px;
+    right: 25px;
+    font-size: 10rem;
+  }
+  .quick-card {
+    padding: 24px;
+  }
+  .simple-steps {
+    margin: 12px 0;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .site-footer {
+    padding: 16px 20px 96px;
+    display: block;
+    font-size: 0.75rem;
+  }
+  .site-footer span {
+    display: block;
+    margin: 4px 0;
+  }
+  .mobile-nav {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 20;
+    background: var(--surface);
+    border-top: 1px solid var(--line);
+    padding: 8px 16px max(8px, env(safe-area-inset-bottom));
+    justify-content: space-around;
+  }
+  .mobile-nav button {
+    background: none;
+    color: var(--muted);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    font-size: 0.75rem;
+    padding: 4px 26px;
+    min-height: 48px;
+    border-radius: 8px;
+  }
+  .mobile-nav button span {
+    font-size: 1.2rem;
+  }
+  .mobile-nav button.active {
+    color: var(--positive);
+    background: var(--soft);
+  }
+  .round-layout,
+  .board-layout,
+  .settings-layout,
+  .rules-layout {
+    grid-template-columns: 1fr;
+  }
+  .round-player-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .preview-panel {
+    position: static;
+  }
+  .preview-panel .full {
+    min-height: 50px;
+  }
+  .board-actions {
+    width: 100%;
+  }
+  .board-actions > .button {
+    flex: 1;
+  }
+  .board-layout > aside {
+    order: 1;
+  }
+  .toast {
+    bottom: 90px;
+  }
+  .modal-backdrop {
+    padding: 10px;
+    align-items: flex-end;
+  }
+  .modal {
+    max-height: 94dvh;
+    border-radius: 18px 18px 10px 10px;
+  }
+  .modal-body {
+    padding: 20px;
+  }
+  .modal-header {
+    padding: 20px;
+  }
+  .modal-footer {
+    padding: 16px 20px;
+  }
+  .house-rules summary span {
+    display: block;
+    margin-left: 0;
+  }
+  .leader-row {
+    padding: 16px;
+  }
+  .board-note {
+    padding-bottom: 8px;
+  }
+  .history-title {
+    gap: 8px;
+  }
+  .history-title h2 {
+    font-size: 1.15rem;
+  }
+  .source-card {
+    margin-top: 16px;
+  }
+}
+@media (max-width: 520px) {
+  .round-player-grid {
+    grid-template-columns: 1fr;
+  }
+  .topbar .brand {
+    font-size: 1.1rem;
+  }
+  .brand-mark {
+    width: 36px;
+    height: 42px;
+    font-size: 1.8rem;
+  }
+  .suit-mark {
+    font-size: 8rem;
+    right: 16px;
+    top: 55px;
+  }
+  .table-banner h2 {
+    font-size: 2rem;
+  }
+  .banner-bottom {
+    padding-top: 24px;
+  }
+  .topbar {
+    gap: 8px;
+  }
+  .topbar-actions {
+    gap: 8px;
+  }
+  .topbar-actions .button {
+    font-size: 0.75rem;
+    padding: 8px 10px;
+  }
+  .modal-body .field-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .modal-body .field-grid > .field:last-child {
+    grid-column: 1/-1;
+  }
+  .settings-card {
+    padding: 18px;
+  }
+  .setting-row {
+    gap: 12px;
+  }
+  .setting-row > .button {
+    padding: 10px;
+    font-size: 0.8rem;
+  }
+  .leader-row {
+    gap: 10px;
+  }
+  .mobile-nav button {
+    padding: 4px 20px;
+  }
+  .table-banner .eyebrow {
+    font-size: 0.7rem;
+  }
+  .table-banner .button {
+    font-size: 0.875rem;
+  }
+  .detail-actions {
+    flex-wrap: wrap;
+  }
+  .section-title {
+    align-items: flex-end;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}
+
+@media (max-width: 520px) {
+  .suit-mark {
+    font-size: 6rem;
+    right: 20px;
+    top: 38px;
+    opacity: 0.22;
+  }
+  .table-banner h2 {
+    max-width: 220px;
+  }
+}
+
+@media(max-width:520px){.player-top{margin-bottom:12px}.maal-row{padding:14px 0 10px}.player-card{padding:16px}.player-card.is-winner{padding:15px}.segmented button{min-height:32px}}
+
+</style>
   </head>
   <body>
     <div id="app-shell">
       <header class="topbar">
-        <button class="brand" data-action="navigate" data-view="home" aria-label="Go home">
-          <span class="brand-mark">♠</span><span>Marriage Hisab Kitab</span>
+        <button
+          class="brand"
+          data-action="navigate"
+          data-view="home"
+          aria-label="Go home"
+        >
+          <span class="brand-mark">♠</span
+          ><span>Marriage<small>HISAB KITAB</small></span>
         </button>
-        <nav class="desktop-nav" aria-label="Primary navigation">
-          <button data-action="navigate" data-view="home">Home</button>
-          <button data-action="navigate" data-view="games">Games</button>
-          <button data-action="navigate" data-view="config"><span class="config-nav-icon" aria-hidden="true">⚙</span> Config</button>
+        <nav class="desktop-nav" aria-label="Primary">
+          <button data-action="navigate" data-view="home">My table</button
+          ><button data-action="navigate" data-view="games">Games</button
+          ><button data-action="navigate" data-view="config">Settings</button>
         </nav>
-        <div class="topbar-actions"><button id="install-button" class="button secondary install-button" type="button" title="Install App locally on your device for offline use." aria-label="Install App locally on your device for offline use.">Install</button><button class="icon-button" data-action="navigate" data-view="rules" title="Rules">?</button></div>
+        <div class="topbar-actions">
+          <button id="install-button" class="button secondary" hidden>
+            Install app</button
+          ><button
+            class="icon-button"
+            data-action="navigate"
+            data-view="rules"
+            aria-label="Rules and scoring"
+          >
+            ?
+          </button>
+        </div>
       </header>
       <main id="main-content"></main>
+      <footer class="site-footer">
+        <span>Made for the Nepali card table.</span
+        ><span>Saved on this device · No account needed</span>
+      </footer>
       <nav class="mobile-nav" aria-label="Mobile navigation">
-        <button data-action="navigate" data-view="home"><span>⌂</span>Home</button>
-        <button data-action="navigate" data-view="games"><span>◷</span>Games</button>
-        <button data-action="navigate" data-view="config"><span>⚙</span>Config</button>
+        <button data-action="navigate" data-view="home">
+          <span>♠</span>My table</button
+        ><button data-action="navigate" data-view="games">
+          <span>▤</span>Games</button
+        ><button data-action="navigate" data-view="config">
+          <span>⚙</span>Settings
+        </button>
       </nav>
     </div>
     <div id="modal-root"></div>
     <div id="toast" class="toast" role="status" aria-live="polite"></div>
-    <script type="module" src="app.js"></script>
+    <script type="module">
+// Source: js/core.js
+const STORAGE = {
+  games: "marriage-web-games",
+  prefs: "marriage-web-prefs",
+};
+const defaultPrefs = {
+  playerCount: 4,
+  names: ["Saroj", "Raj", "Padam", "Prakash", "Pragyan"],
+  pointRate: 1,
+  theme: "light",
+};
+const rates = [0.25, 0.5, 1, 2, 10, 100];
+
+function load(key, fallback) {
+  try {
+    return JSON.parse(localStorage.getItem(key)) ?? fallback;
+  } catch {
+    return fallback;
+  }
+}
+
+const state = {
+  view: "home",
+  gameId: null,
+  roundId: null,
+  games: load(STORAGE.games, []),
+  prefs: { ...defaultPrefs, ...load(STORAGE.prefs, {}) },
+};
+
+function save() {
+  localStorage.setItem(STORAGE.games, JSON.stringify(state.games));
+  localStorage.setItem(STORAGE.prefs, JSON.stringify(state.prefs));
+}
+function id() {
+  return crypto.randomUUID
+    ? crypto.randomUUID()
+    : `${Date.now()}-${Math.random()}`;
+}
+function money(n, currency = "NPR") {
+  return `${n < 0 ? "−" : ""}${currency === "NPR" ? "Rs. " : "$"}${new Intl.NumberFormat("en-IN", { minimumFractionDigits: 0, maximumFractionDigits: 2 }).format(Math.abs(n))}`;
+}
+function dateLabel(iso) {
+  return new Date(iso).toLocaleDateString(undefined, {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  });
+}
+function getGame() {
+  return state.games.find((game) => game.id === state.gameId);
+}
+function total(game, playerId) {
+  return game.rounds.reduce(
+    (sum, round) => sum + (round.scores[playerId] || 0),
+    0,
+  );
+}
+function scoreClass(score) {
+  return score > 0 ? "positive" : score < 0 ? "negative" : "zero";
+}
+function scoreBadge(score) {
+  return `<span class="score-number ${scoreClass(score)}">${score > 0 ? "+" : ""}${score}</span>`;
+}
+function escape(value) {
+  return String(value).replace(
+    /[&<>'"]/g,
+    (character) =>
+      ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" })[
+        character
+      ],
+  );
+}
+function uniqueName() {
+  const date = new Date();
+  const base = `${date.toLocaleDateString(undefined, { month: "long", day: "numeric", year: "numeric" })} Ko Game`;
+  return `${base} (${date.toLocaleTimeString(undefined, { hour: "numeric", minute: "2-digit" })})`;
+}
+
+let renderer = () => {};
+function setRenderer(render) {
+  renderer = render;
+}
+function navigate(view, gameId = state.gameId, roundId = null) {
+  state.view = view;
+  state.gameId = gameId;
+  state.roundId = roundId;
+  renderer();
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+
+// Source: js/scoring.js
+// Net points: every player exchanges maal differences; opponents pay the finisher.
+function calculateRound(entries, winnerId, settings) {
+  if (
+    entries.length < 2 ||
+    new Set(entries.map((e) => e.playerId)).size !== entries.length
+  )
+    throw new Error("Choose at least two distinct players.");
+  const winner = entries.find((e) => e.playerId === winnerId);
+  if (!winner || winner.status !== "seen")
+    throw new Error("The winner must be Seen.");
+  for (const e of entries) {
+    if (
+      !["seen", "unseen"].includes(e.status) ||
+      !Number.isSafeInteger(e.maalPoints) ||
+      e.maalPoints < 0 ||
+      e.maalPoints > 10000
+    )
+      throw new Error("Enter valid whole-number maal points (0–10,000).");
+    if (e.status === "unseen" && (e.maalPoints !== 0 || e.dubli))
+      throw new Error("Unseen players cannot count maal or play dublee.");
+  }
+  const seen = settings.seenPoint ?? 3,
+    unseen = settings.unseenPoint ?? 10,
+    bonus = settings.dubleeBonus ?? 0;
+  if (
+    ![seen, unseen, bonus].every(
+      (v) => Number.isSafeInteger(v) && v >= 0 && v <= 10000,
+    )
+  )
+    throw new Error("Invalid house-rule charges.");
+  const totalMaal = entries.reduce((s, e) => s + e.maalPoints, 0);
+  const multiplier = settings.better && entries.some((e) => e.dubli) ? 2 : 1;
+  const scores = Object.fromEntries(entries.map((e) => [e.playerId, 0]));
+  for (const e of entries.filter((e) => e.playerId !== winnerId)) {
+    const charge =
+      e.status === "unseen"
+        ? unseen
+        : e.dubli && settings.dubleeExempt !== false
+          ? 0
+          : seen;
+    const payment =
+      (totalMaal -
+        entries.length * e.maalPoints +
+        charge +
+        (winner.dubli ? bonus : 0)) *
+      multiplier;
+    scores[e.playerId] = payment === 0 ? 0 : -payment;
+    scores[winnerId] += payment;
+  }
+  return { scores, totalMaal, multiplier };
+}
+// Greedy net-balance settlement; at most n−1 transfers, not a global minimum guarantee.
+function settleBalances(players, rounds, rate = 1) {
+  const balances = players.map((p) => ({
+    playerId: p.id,
+    name: p.name,
+    amount: Math.round(
+      rounds.reduce((s, r) => s + (r.scores[p.id] || 0), 0) * rate * 100,
+    ),
+  }));
+  const debt = balances
+    .filter((p) => p.amount < 0)
+    .map((p) => ({ ...p, amount: -p.amount }))
+    .sort((a, b) => b.amount - a.amount);
+  const credit = balances
+    .filter((p) => p.amount > 0)
+    .map((p) => ({ ...p }))
+    .sort((a, b) => b.amount - a.amount);
+  const out = [];
+  let i = 0,
+    j = 0;
+  while (i < debt.length && j < credit.length) {
+    const amount = Math.min(debt[i].amount, credit[j].amount);
+    out.push({ from: debt[i].name, to: credit[j].name, amount: amount / 100 });
+    debt[i].amount -= amount;
+    credit[j].amount -= amount;
+    if (!debt[i].amount) i++;
+    if (!credit[j].amount) j++;
+  }
+  return out;
+}
+
+
+// Source: js/backups.js
+function validateBackup(data) {
+  if (
+    !data ||
+    data.version !== 1 ||
+    !Array.isArray(data.games) ||
+    data.games.length > 1000
+  )
+    throw new Error("Invalid Marriage backup.");
+  const safeId = (id) => typeof id === "string" && /^[A-Za-z0-9._-]{1,100}$/.test(id);
+  const gameIds = new Set();
+  for (const g of data.games) {
+    if (
+      !safeId(g.id) ||
+      g.id.length > 100 ||
+      gameIds.has(g.id) ||
+      typeof g.name !== "string" ||
+      g.name.length > 200 ||
+      !Array.isArray(g.players) ||
+      g.players.length < 2 ||
+      g.players.length > 8 ||
+      !Array.isArray(g.rounds) ||
+      g.rounds.length > 10000 ||
+      !Number.isFinite(Date.parse(g.createdAt)) ||
+      !g.settings ||
+      !Number.isFinite(g.settings.pointRate) ||
+      g.settings.pointRate < 0 ||
+      g.settings.pointRate > 10000
+    )
+      throw new Error("Invalid game in backup.");
+    gameIds.add(g.id);
+    const ids = new Set();
+    for (const p of g.players) {
+      if (
+        !safeId(p.id) ||
+        p.id.length > 100 ||
+        typeof p.name !== "string" ||
+        p.name.length > 100 ||
+        ids.has(p.id)
+      )
+        throw new Error("Invalid players.");
+      ids.add(p.id);
+    }
+    for (const key of ["seenPoint", "unseenPoint"])
+      if (
+        !Number.isSafeInteger(g.settings[key]) ||
+        g.settings[key] < 0 ||
+        g.settings[key] > 10000
+      )
+        throw new Error("Invalid rules.");
+    if (
+      g.settings.dubleeBonus != null &&
+      (!Number.isSafeInteger(g.settings.dubleeBonus) ||
+        g.settings.dubleeBonus < 0 ||
+        g.settings.dubleeBonus > 10000)
+    )
+      throw new Error("Invalid dublee bonus.");
+    if (
+      g.settings.currency != null &&
+      !["NPR", "USD"].includes(g.settings.currency)
+    )
+      throw new Error("Invalid currency.");
+    const roundIds = new Set();
+    for (const r of g.rounds) {
+      if (
+        !safeId(r.id) ||
+        r.id.length > 100 ||
+        roundIds.has(r.id) ||
+        !Number.isSafeInteger(r.number) ||
+        !ids.has(r.winnerId) ||
+        !Number.isFinite(Date.parse(r.createdAt)) ||
+        !Array.isArray(r.entries) ||
+        r.entries.length !== g.players.length ||
+        !r.scores ||
+        Object.keys(r.scores).length !== g.players.length
+      )
+        throw new Error("Invalid round.");
+      roundIds.add(r.id);
+      if (
+        new Set(r.entries.map((e) => e.playerId)).size !== ids.size ||
+        r.entries.some((e) => !ids.has(e.playerId))
+      )
+        throw new Error("Invalid round players.");
+      calculateRound(r.entries, r.winnerId, g.settings);
+      if (
+        [...ids].some(
+          (id) =>
+            !Number.isSafeInteger(r.scores[id]) || Math.abs(r.scores[id]) > 1e9,
+        ) ||
+        Object.values(r.scores).reduce((s, v) => s + v, 0) !== 0
+      )
+        throw new Error("Invalid scores.");
+    }
+  }
+}
+
+
+// Source: js/views/home.js
+function homeView() {
+  const recent = state.games[0];
+  return `<div class="page-heading"><div><p class="eyebrow">YOUR CARD TABLE</p><h1>Let’s keep the hisab.</h1><p class="muted">More time for the game. Less time doing the maths.</p></div><span class="local-badge">Device-only storage</span></div>
+<section class="welcome-grid"><div class="table-banner"><div><span class="eyebrow">MARRIAGE · म्यारिज</span><h2>Good company.<br>Clear scores.</h2><p>Your next round starts here.</p><button class="button gold" data-action="new-game">＋ Start a new game</button></div><div class="suit-mark" aria-hidden="true">♠</div><div class="banner-bottom"><span>21 cards. One table.</span><span>हिसाब किताब</span></div></div><div class="quick-card"><p class="eyebrow">${recent ? "BACK TO THE TABLE" : "FIRST GAME?"}</p><h2>${recent ? escape(recent.name) : "Keep it simple."}</h2><p class="muted">${recent ? `${recent.players.length} players · ${recent.rounds.length} rounds · ${dateLabel(recent.createdAt)}` : "Add your friends, choose your table rules and record the round."}</p>${recent ? `<div class="avatar-stack">${recent.players.map((x) => `<span class="avatar" title="${escape(x.name)}">${escape(x.name.charAt(0))}</span>`).join("")}</div><button class="button primary" data-action="open-game" data-id="${recent.id}">Continue game</button>` : `<ol class="simple-steps"><li>Name your players</li><li>Pick the winner & enter maal</li><li>See the scores instantly</li></ol><button class="text-button" data-action="navigate" data-view="rules">How scoring works</button>`}</div></section>
+<section class="section"><div class="section-title"><div><p class="eyebrow">YOUR SESSIONS</p><h2>Recent games</h2></div><button class="text-button" data-action="navigate" data-view="games">View all games</button></div>${
+    state.games.length
+      ? `<div class="card-grid">${state.games
+          .slice(0, 6)
+          .map(
+            (g) =>
+              `<button class="card game-card" data-action="open-game" data-id="${g.id}"><span class="game-icon">♠</span><span class="game-card-copy"><h3>${escape(g.name)}</h3><p>${g.players.length} players · ${g.rounds.length} rounds</p><small>${money(g.settings.pointRate, g.settings.currency || "USD")} / point · ${dateLabel(g.createdAt)}</small></span><span class="chevron">›</span></button>`,
+          )
+          .join("")}</div>`
+      : `<div class="empty"><span class="empty-symbol">▤</span><h3>A clean slate.</h3><p>Your games will appear here. Everything stays on this device.</p></div>`
+  }</section>`;
+}
+
+
+// Source: js/views/games.js
+function gamesView() {
+  const cards = state.games
+    .map(
+      (game) => `
+    <div class="card game-card">
+      <button class="game-card-main" data-action="open-game" data-id="${game.id}">
+        <span class="game-icon">▶</span>
+        <span>
+          <h3>${escape(game.name)}</h3>
+          <p>${game.players.length} players · ${game.rounds.length} rounds · ${dateLabel(game.createdAt)}</p>
+        </span>
+      </button>
+      <span class="chevron">›</span>
+    </div>
+  `,
+    )
+    .join("");
+
+  return `
+    <div class="page-heading">
+      <div>
+        <p class="eyebrow">History</p>
+        <h1>Games</h1>
+      </div>
+      <button class="button primary" data-action="new-game">＋ New Game</button>
+    </div>
+    ${state.games.length ? `<div class="card-grid">${cards}</div>` : `<div class="empty">No games yet. Start a new game to begin.</div>`}
+  `;
+}
+
+
+// Source: js/views/config.js
+function configView() {
+  return `<div class="page-heading"><div><p class="eyebrow">MAKE IT YOUR TABLE</p><h1>Settings</h1><p class="muted">Defaults for new games. Existing games keep their rules.</p></div><span class="local-badge">Saved automatically</span></div><div class="settings-layout"><section class="card settings-card"><div class="setting-row"><div><label for="default-count">Default players</label><small>Standard 2–5; up to 8 for house games</small></div><select id="default-count" data-pref="playerCount">${Array.from(
+    { length: 7 },
+    (_, i) => i + 2,
+  )
+    .map(
+      (n) =>
+        `<option ${n === state.prefs.playerCount ? "selected" : ""}>${n}</option>`,
+    )
+    .join(
+      "",
+    )}</select></div><div class="setting-row"><label for="default-rate">NPR per point</label><input id="default-rate" data-pref="pointRate" type="number" min="0" max="10000" step="0.01" value="${state.prefs.pointRate}"></div><div class="setting-row"><label>Appearance</label><button class="button secondary" data-action="toggle-theme">${state.prefs.theme === "dark" ? "Use light mode" : "Use dark mode"}</button></div><div class="form-section"><h2>Regular players</h2><div class="player-fields">${Array.from({ length: 8 }, (_, i) => `<div class="field"><label for="pref-${i}">Player ${i + 1}</label><input id="pref-${i}" data-pref-name="${i}" maxlength="40" value="${escape(state.prefs.names[i] || "")}" placeholder="Player ${i + 1}"></div>`).join("")}</div></div></section><aside class="card"><p class="eyebrow">YOUR DATA</p><h2>Keep a copy.</h2><p class="muted">${state.games.length} games saved in this browser. Backups contain names, rules and round scores.</p><button class="button primary full" data-action="export">Export backup</button><label class="button secondary full import-button">Import backup<input type="file" id="import-backup" accept="application/json,.json" hidden></label><p class="small muted">Import adds missing games; matching IDs stay unchanged.</p><p class="small muted">Older games keep their original USD unit. New games use NPR.</p></aside></div>`;
+}
+
+
+// Source: js/views/rules.js
+function rulesView() {
+  return `<div class="page-heading"><div><p class="eyebrow">A FAIR TABLE STARTS HERE</p><h1>Rules & scoring</h1><p class="muted">Agree on your house rules before the first deal.</p></div></div><div class="rules-layout"><section class="card"><h2>The round calculation</h2><p>Count each Seen player’s eligible maal. Unseen maal is zero in this calculator.</p><div class="formula">Net points = players × your maal − total maal − finishing charge</div><p>Each opponent pays their net loss to the finisher. A negative payment means the finisher pays them. Finishing first can still leave you with a net loss.</p><div class="rule-list"><div class="rule"><strong>Seen / Unseen</strong><p>Reference finishing charges: 3 points if Seen; 10 if Unseen.</p></div><div class="rule"><strong>Dublee</strong><p>Identical-card pairs. Seven pairs to see the tiplu; eight to finish. Pagat adds 5 points per opponent for a dublee finish.</p></div><div class="rule"><strong>Your original table rules</strong><p>Dublee losers pay no Seen charge; no extra dublee finish bonus. New-game defaults preserve this convention. Both are configurable.</p></div><div class="rule"><strong>Better</strong><p>Optional house rule here: double the entire round if any Seen player plays dublee. This is off by default.</p></div></div><h2>Maal reference</h2><div class="table-wrap"><table class="score-table"><thead><tr><th>Combination</th><th>Single</th><th>Double</th><th>Triple</th></tr></thead><tbody><tr><td>Tiplu</td><td>3</td><td>7</td><td>—</td></tr><tr><td>Jhiplu / Poplu</td><td>2</td><td>5</td><td>10</td></tr><tr><td>Marriage</td><td>10</td><td>30</td><td>—</td></tr></tbody></table></div><p class="small muted">Marriage = same-suit Jhiplu + Tiplu + Poplu. Count each card once. Declared tunnela, alter and printed-joker values depend on your table: include eligible points in the entered maal.</p></section><aside><div class="card"><h2>21-card basics</h2><div class="rule"><strong>Cards & players</strong><p>Three standard 52-card decks; 21 cards per player; usually 2–5 players. Printed jokers are a variation.</p></div><div class="rule"><strong>Opening</strong><p>Three pure sequences or tunnelas let a player see the tiplu.</p></div><div class="rule"><strong>Tunnela / Trial</strong><p>Tunnela: three identical cards. Trial: same rank, three different suits.</p></div><div class="rule"><strong>Local variation</strong><p>Murder, foul, drop and special-card rules differ. Automatic foul/drop penalties are not included.</p></div></div><div class="card source-card"><p class="eyebrow">RESEARCH · 5 OCT 2026</p><h3>Sources</h3><a href="https://www.pagat.com/rummy/marriage.html" target="_blank" rel="noopener">Pagat · rules & scoring</a><a href="https://bhoos.games/marriage/" target="_blank" rel="noopener">Bhoos · game terminology</a><p class="small muted">No verified universal 2026 rule revision. Confirm local conventions at your table.</p><p class="small muted">Original app: Saroj Poudyal. Entertainment scorekeeping; no payments processed.</p></div></aside></div>`;
+}
+
+
+// Source: js/views/scoreboard.js
+function scoreboardView() {
+  const g = getGame();
+  if (!g) return '<div class="empty">Game unavailable</div>';
+  const currency = g.settings.currency || "USD";
+  const sorted = [...g.players].sort((a, b) => total(g, b.id) - total(g, a.id));
+  const transfers = settleBalances(g.players, g.rounds, g.settings.pointRate);
+  return `<button class="back-link" data-action="navigate" data-view="home">‹ My table</button><div class="page-heading"><div><p class="eyebrow">YOUR TABLE · ${g.players.length} PLAYERS</p><h1>${escape(g.name)}</h1><p class="muted">${g.rounds.length} ${g.rounds.length === 1 ? "round" : "rounds"} · ${money(g.settings.pointRate, currency)} per point</p></div><div class="board-actions"><button class="button secondary" data-action="share">Share scores</button><button class="button primary" data-action="add-round">＋ Add round</button></div></div><div class="board-layout"><section><div class="section-title"><h2>At the table</h2><span class="small muted">Net points</span></div><div class="leaderboard">${sorted
+    .map((p, i) => {
+      const t = total(g, p.id);
+      return `<div class="leader-row"><span class="rank">${String(i + 1).padStart(2, "0")}</span><span class="avatar color-${i % 4}">${escape(p.name.charAt(0))}</span><div class="leader-name"><strong>${escape(p.name)}</strong><small>${g.rounds.filter((r) => r.winnerId === p.id).length} finished</small></div><div class="leader-score">${scoreBadge(t)}<small>${money(t * g.settings.pointRate, currency)}</small></div></div>`;
+    })
+    .join(
+      "",
+    )}</div><div class="section-title history-title"><h2>Round history</h2>${g.rounds.length ? '<button class="text-button" data-action="undo-round">Undo last round</button>' : ""}</div>${
+    g.rounds.length
+      ? `<div class="table-wrap"><table class="score-table"><thead><tr><th>Round</th>${g.players.map((p) => `<th>${escape(p.name)}</th>`).join("")}</tr></thead><tbody>${[
+          ...g.rounds,
+        ]
+          .reverse()
+          .map(
+            (r) =>
+              `<tr><td><button class="round-link" data-action="open-round" data-id="${r.id}">#${r.number} <span>View</span></button></td>${g.players.map((p) => `<td>${scoreBadge(r.scores[p.id] || 0)}${r.winnerId === p.id ? '<span class="round-winner" title="Finished round">♛</span>' : ""}</td>`).join("")}</tr>`,
+          )
+          .join("")}</tbody></table></div>`
+      : '<div class="empty"><h3>The table is ready.</h3><p>Add your first round to start scoring.</p><button class="button primary" data-action="add-round">＋ Add round</button></div>'
+  }</section><aside><div class="settlement-card"><p class="eyebrow">SETTLEMENT</p><h2>Who pays whom?</h2><p class="small muted">Net balances across all rounds.</p>${g.rounds.length ? (transfers.length ? transfers.map((t) => `<div class="transfer"><div><strong>${escape(t.from)}</strong><small>pays ${escape(t.to)}</small></div><strong>${money(t.amount, currency)}</strong></div>`).join("") : '<p class="muted">All square. No payments needed.</p>') : '<div class="settlement-empty">Settlements appear after your first round.</div>'}</div><div class="board-note"><strong>Saved on this device</strong><p>Games stay in this browser. Export a backup before clearing browser data.</p></div><button class="text-button danger-text" data-action="delete-game">Delete game</button></aside></div>`;
+}
+
+
+// Source: js/views/round.js
+function roundView() {
+  const g = getGame();
+  if (!g) return '<div class="empty">Game unavailable</div>';
+  const edit = g.rounds.find((r) => r.id === state.roundId);
+  const entries =
+    edit?.entries ||
+    g.players.map((p) => ({
+      playerId: p.id,
+      maalPoints: 0,
+      status: "unseen",
+      dubli: false,
+    }));
+  return `<button class="back-link" data-action="navigate" data-view="scoreboard">‹ Scoreboard</button><div class="page-heading"><div><p class="eyebrow">${escape(g.name)} · ROUND ${edit?.number || g.rounds.length + 1}</p><h1>Who finished the round?</h1><p class="muted">Pick the winner. Add everyone’s maal.</p></div><span class="local-badge">${g.players.length} players</span></div><form id="round-form" data-editing="${edit?.id || ""}"><input type="hidden" id="winner" name="winner" value="${edit?.winnerId || ""}"><div class="round-layout"><div><div class="round-player-grid">${g.players
+    .map((p, i) => {
+      const e = entries.find((e) => e.playerId === p.id);
+      const win = p.id === edit?.winnerId;
+      return `<section class="player-card ${win ? "is-winner" : ""}" data-player-card="${p.id}" data-status="${e.status}"><div class="player-top"><span class="avatar color-${i % 4}">${escape(p.name.charAt(0))}</span><strong class="player-name">${escape(p.name)}</strong><button type="button" class="winner-select ${win ? "selected" : ""}" data-pick-winner="${p.id}" aria-pressed="${win}" aria-label="Choose ${escape(p.name)} as winner">${win ? "♛ Winner" : "Set winner"}</button></div><div class="segmented" role="group" aria-label="${escape(p.name)} status"><button type="button" data-status="seen" aria-pressed="${e.status === "seen"}" ${win ? "disabled" : ""} class="${e.status === "seen" ? "selected seen" : ""}">Seen</button><button type="button" data-status="unseen" aria-pressed="${e.status === "unseen"}" ${win ? "disabled" : ""} class="${e.status === "unseen" ? "selected unseen" : ""}">Unseen</button></div><div class="maal-row"><label class="maal-label" for="maal-${p.id}">Maal points</label><div class="stepper"><button type="button" data-step="-1" aria-label="Decrease ${escape(p.name)} maal" ${e.status === "unseen" ? "disabled" : ""}>−</button><input id="maal-${p.id}" type="number" inputmode="numeric" min="0" max="10000" step="1" data-maal value="${e.maalPoints}" ${e.status === "unseen" ? "disabled" : ""}><button type="button" data-step="1" aria-label="Increase ${escape(p.name)} maal" ${e.status === "unseen" ? "disabled" : ""}>＋</button></div></div><div class="player-bottom"><label class="toggle"><input type="checkbox" data-dubli ${e.dubli ? "checked" : ""} ${e.status === "unseen" ? "disabled" : ""}> Dublee</label><span class="small muted">${e.status === "unseen" ? "Maal does not count" : "Maal counts"}</span></div></section>`;
+    })
+    .join(
+      "",
+    )}</div><details class="house-rules"><summary>Table rules</summary><p class="muted">Seen ${g.settings.seenPoint} · Unseen ${g.settings.unseenPoint} · Dublee bonus ${g.settings.dubleeBonus || 0} · Dublee exemption ${g.settings.dubleeExempt !== false ? "on" : "off"} · Better ${g.settings.better ? "on" : "off"}</p></details></div><aside class="preview-panel"><p class="eyebrow">ROUND PREVIEW</p><div class="maal-total"><span>Total maal</span><strong id="total-maal">0</strong></div><div id="round-preview" aria-live="polite"><p class="muted">Choose a winner to see the points.</p></div><div id="round-error" class="negative" role="alert"></div><button type="submit" class="button primary full" ${edit ? "" : "disabled"}>${edit ? "Save changes" : "Save round"}</button><p class="small muted">Check the scores before saving.</p><button type="button" class="text-button" data-action="cancel-round">Cancel round</button></aside></div></form>`;
+}
+
+
+// Source: js/views/detail.js
+function detailView() {
+  const game = getGame();
+  const round = game?.rounds.find((item) => item.id === state.roundId);
+  if (!game || !round) return `<div class="empty">Round unavailable</div>`;
+  const players = game.players
+    .map((player) => {
+      const entry = round.entries.find((item) => item.playerId === player.id);
+      const score = round.scores[player.id] || 0;
+      return `
+      <div class="detail-row">
+        <span class="avatar">${player.id === round.winnerId ? "♛" : escape(player.name.charAt(0).toUpperCase())}</span>
+        <div class="detail-info">
+          <strong>${escape(player.name)} ${player.id === round.winnerId ? '<span class="winner-label">WINNER</span>' : ""}</strong>
+          <div class="pills">
+            <span class="pill ${entry?.maalPoints ? "good" : "bad"}">Maal ${entry?.maalPoints || 0}</span>
+            <span class="pill">${entry?.status === "seen" ? "Seen" : "Unseen"}</span>
+            <span class="pill ${entry?.dubli ? "good" : ""}">Dubli ${entry?.dubli ? "Yes" : "No"}</span>
+          </div>
+        </div>
+        <span class="big-score ${scoreClass(score)}">${score > 0 ? "+" : ""}${score}</span>
+      </div>
+    `;
+    })
+    .join("");
+
+  return `
+    <button class="back-link" data-action="navigate" data-view="scoreboard">← Back to scoreboard</button>
+    <div class="page-heading">
+      <div>
+        <p class="eyebrow">Round ${round.number}</p>
+        <h1>Round details</h1>
+        <p class="muted">${new Date(round.createdAt).toLocaleDateString()} · ${escape(game.players.find((player) => player.id === round.winnerId)?.name || "Winner")} won</p>
+      </div>
+    </div>
+    <div class="detail-card">
+      <div class="detail-actions">
+        <button class="button secondary" data-action="edit-round"><span class="action-icon">⚙</span> Fix maal</button>
+        <button class="button danger" data-action="delete-round"><span class="action-icon">🗑</span> Delete round</button>
+      </div>
+      <div class="card">${players}</div>
+    </div>
+  `;
+}
+
+
+// Source: js/modals.js
+function playerFields(names) {
+  return names
+    .map(
+      (name, i) =>
+        `<div class="field"><label for="player-${i}">Player ${i + 1}</label><input id="player-${i}" name="player-${i}" value="${escape(name)}" maxlength="40" autocomplete="off" required></div>`,
+    )
+    .join("");
+}
+function newGameForm() {
+  return `<div class="modal-backdrop"><section class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" tabindex="-1"><div class="modal-header"><div><p class="eyebrow">GATHER YOUR TABLE</p><h2 id="modal-title">New game</h2></div><button class="close" data-action="close-modal" aria-label="Close">×</button></div><form id="new-game-form"><div class="modal-body"><div class="field"><label for="game-name">Game name</label><input id="game-name" name="name" value="${escape(new Date().toLocaleDateString("en-GB", { month: "short", day: "numeric" }) + " · Card night")}" maxlength="80" required></div><div class="field"><label for="player-count">Players</label><select id="player-count" name="count">${Array.from(
+    { length: 7 },
+    (_, i) => i + 2,
+  )
+    .map(
+      (n) =>
+        `<option ${n === state.prefs.playerCount ? "selected" : ""}>${n}</option>`,
+    )
+    .join(
+      "",
+    )}</select><small>Standard: 2–5. Larger tables use your house rules.</small></div><div class="player-fields" id="new-player-fields">${playerFields(Array.from({ length: state.prefs.playerCount }, (_, i) => state.prefs.names[i] || `Player ${i + 1}`))}</div><div class="field rate-field"><label for="rate">NPR per point</label><input id="rate" name="rate" type="number" min="0" max="10000" step="0.01" value="${state.prefs.pointRate}" required><small>0 = points only.</small></div><details class="house-rules" open><summary>Table rules <span>Choose before playing</span></summary><div class="field-grid"><div class="field"><label for="seen">Seen charge</label><input id="seen" name="seen" type="number" min="0" max="10000" value="3" required></div><div class="field"><label for="unseen">Unseen charge</label><input id="unseen" name="unseen" type="number" min="0" max="10000" value="10" required></div><div class="field"><label for="bonus">Dublee win bonus</label><input id="bonus" name="bonus" type="number" min="0" max="10000" value="0" required></div></div><label class="toggle"><input name="exempt" type="checkbox" checked> Dublee loser pays no Seen charge</label><label class="toggle"><input name="better" type="checkbox"> Better: double all points when anyone plays dublee</label><p class="muted small">Starting rules match your original app. Pagat’s reference: no dublee exemption; +5 per opponent for a dublee finish.</p></details></div><div class="modal-footer"><button type="button" class="button ghost" data-action="close-modal">Cancel</button><button class="button primary">Start game</button></div></form></section></div>`;
+}
+function confirmModal(
+  title,
+  copy,
+  confirmLabel = "Confirm",
+  cancelLabel = "Cancel",
+) {
+  return `<div class="modal-backdrop"><section class="modal compact" role="dialog" aria-modal="true" aria-labelledby="modal-title" tabindex="-1"><div class="modal-header"><h2 id="modal-title">${escape(title)}</h2><button class="close" data-action="close-modal" aria-label="Close">×</button></div><div class="modal-body"><p>${escape(copy)}</p></div><div class="modal-footer"><button class="button ghost" data-action="close-modal">${escape(cancelLabel)}</button><button class="button danger" id="confirm-yes">${escape(confirmLabel)}</button></div></section></div>`;
+}
+
+
+// Source: app.js
+const views = {
+  home: homeView,
+  games: gamesView,
+  config: configView,
+  rules: rulesView,
+  scoreboard: scoreboardView,
+  round: roundView,
+  detail: detailView,
+};
+const main = document.querySelector("#main-content"),
+  modal = document.querySelector("#modal-root");
+let restoreFocus = null,
+  toastTimer,
+  installPrompt;
+function toast(text) {
+  const t = document.querySelector("#toast");
+  t.textContent = text;
+  t.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove("show"), 3000);
+}
+function persist() {
+  try {
+    save();
+    return true;
+  } catch {
+    toast("Storage unavailable. Export a backup before closing.");
+    return false;
+  }
+}
+function render() {
+  document.querySelectorAll("[data-view]").forEach((b) => {
+    const active = b.dataset.view === state.view;
+    b.classList.toggle("active", active);
+    active
+      ? b.setAttribute("aria-current", "page")
+      : b.removeAttribute("aria-current");
+  });
+  main.innerHTML = views[state.view]();
+  document.documentElement.dataset.theme =
+    state.prefs.theme === "dark" ? "dark" : "light";
+  preview();
+  const form = document.querySelector("#round-form");
+  if (form) form.dataset.baseline = JSON.stringify([readEntries(), document.querySelector("#winner").value]);
+}
+function showModal(html) {
+  restoreFocus = document.activeElement;
+  modal.innerHTML = html;
+  document.body.classList.add("modal-open");
+  document.querySelector("#app-shell").inert = true;
+  modal.querySelector("input,button")?.focus();
+}
+function closeModal() {
+  modal.innerHTML = "";
+  document.body.classList.remove("modal-open");
+  document.querySelector("#app-shell").inert = false;
+  restoreFocus?.focus();
+}
+function confirm(title, copy, action, label = "Confirm") {
+  showModal(confirmModal(title, copy, label, "Cancel"));
+  document.querySelector("#confirm-yes").onclick = () => {
+    closeModal();
+    action();
+  };
+}
+function readEntries() {
+  return [...document.querySelectorAll("[data-player-card]")].map((c) => ({
+    playerId: c.dataset.playerCard,
+    maalPoints: Number(c.querySelector("[data-maal]").value),
+    status: c.dataset.status,
+    dubli: c.querySelector("[data-dubli]").checked,
+  }));
+}
+function preview() {
+  const form = document.querySelector("#round-form");
+  if (!form) return;
+  const entries = readEntries(),
+    winner = document.querySelector("#winner").value;
+  document.querySelector("#total-maal").textContent = entries.reduce(
+    (s, e) => s + (Number.isFinite(e.maalPoints) ? e.maalPoints : 0),
+    0,
+  );
+  const submit = form.querySelector("[type=submit]");
+  submit.disabled = true;
+  document.querySelector("#round-error").textContent = "";
+  if (!winner) return;
+  try {
+    const { scores, multiplier } = calculateRound(
+      entries,
+      winner,
+      getGame().settings,
+    );
+    document.querySelector("#round-preview").innerHTML =
+      getGame()
+        .players.map(
+          (p) =>
+            `<div class="preview-row"><span>${escape(p.name)}</span>${scoreBadge(scores[p.id])}</div>`,
+        )
+        .join("") +
+      (multiplier === 2
+        ? '<p class="better-badge">Better game · points doubled</p>'
+        : "");
+    submit.disabled = false;
+  } catch (e) {
+    document.querySelector("#round-error").textContent = e.message;
+  }
+}
+function status(card, seen) {
+  card.dataset.status = seen ? "seen" : "unseen";
+  const winner =
+    card.dataset.playerCard === document.querySelector("#winner").value;
+  card.querySelectorAll("[data-status]").forEach((b) => {
+    const on = b.dataset.status === card.dataset.status;
+    b.classList.toggle("selected", on);
+    b.setAttribute("aria-pressed", String(on));
+    b.disabled = winner;
+  });
+  card
+    .querySelectorAll("[data-step],[data-maal],[data-dubli]")
+    .forEach((c) => (c.disabled = !seen));
+  if (!seen) {
+    card.querySelector("[data-maal]").value = 0;
+    card.querySelector("[data-dubli]").checked = false;
+  }
+  card.querySelector(".player-bottom .muted").textContent = seen
+    ? "Maal counts"
+    : "Maal does not count";
+}
+function pickWinner(playerId) {
+  document.querySelector("#winner").value = playerId;
+  document.querySelectorAll("[data-player-card]").forEach((c) => {
+    const win = c.dataset.playerCard === playerId;
+    c.classList.toggle("is-winner", win);
+    const b = c.querySelector("[data-pick-winner]");
+    b.classList.toggle("selected", win);
+    b.setAttribute("aria-pressed", String(win));
+    b.textContent = win ? "♛ Winner" : "Set winner";
+    status(c, win || c.dataset.status === "seen");
+  });
+  preview();
+}
+document.addEventListener("click", (e) => {
+  const pick = e.target.closest("[data-pick-winner]");
+  if (pick) {
+    pickWinner(pick.dataset.pickWinner);
+    return;
+  }
+  const st = e.target.closest("[data-status]");
+  if (st && !st.disabled) {
+    status(st.closest("[data-player-card]"), st.dataset.status === "seen");
+    preview();
+    return;
+  }
+  const step = e.target.closest("[data-step]");
+  if (step && !step.disabled) {
+    const input = step
+      .closest("[data-player-card]")
+      .querySelector("[data-maal]");
+    input.value = Math.max(
+      0,
+      Math.min(10000, (Number(input.value) || 0) + Number(step.dataset.step)),
+    );
+    preview();
+    return;
+  }
+  const b = e.target.closest("[data-action]");
+  if (!b) return;
+  const a = b.dataset.action;
+  if (a === "navigate") {
+    const form = document.querySelector("#round-form");
+    const changed = form && form.dataset.baseline !== JSON.stringify([readEntries(), document.querySelector("#winner").value]);
+    if (changed) confirm("Leave this round?", "Unsaved changes will be lost.", () => navigate(b.dataset.view), "Leave round");
+    else navigate(b.dataset.view);
+  }
+  if (a === "new-game") showModal(newGameForm());
+  if (a === "close-modal") closeModal();
+  if (a === "open-game") navigate("scoreboard", b.dataset.id);
+  if (a === "add-round") navigate("round", state.gameId);
+  if (a === "open-round") navigate("detail", state.gameId, b.dataset.id);
+  if (a === "cancel-round")
+    confirm(
+      "Discard this round?",
+      "Unsaved changes will be lost.",
+      () => navigate("scoreboard", state.gameId),
+      "Discard",
+    );
+  if (a === "toggle-theme") {
+    state.prefs.theme = state.prefs.theme === "dark" ? "light" : "dark";
+    persist();
+    render();
+  }
+  if (a === "edit-round") {
+    state.view = "round";
+    render();
+  }
+  if (a === "delete-round" || a === "undo-round") {
+    const g = getGame();
+    const roundId = a === "undo-round" ? g.rounds.at(-1)?.id : state.roundId;
+    confirm(
+      a === "undo-round" ? "Undo last round?" : "Delete round?",
+      "This round will be removed and totals recalculated.",
+      () => {
+        g.rounds = g.rounds.filter((r) => r.id !== roundId);
+        g.rounds.forEach((r, i) => (r.number = i + 1));
+        persist();
+        navigate("scoreboard", g.id);
+        toast("Round removed");
+      },
+      "Remove round",
+    );
+  }
+  if (a === "delete-game") {
+    const gameId = b.dataset.gameId || state.gameId;
+    confirm(
+      "Delete this game?",
+      "All its rounds will be removed. Export a backup first if you need a copy.",
+      () => {
+        state.games = state.games.filter((g) => g.id !== gameId);
+        persist();
+        navigate("home", null);
+      },
+      "Delete game",
+    );
+  }
+  if (a === "share") share();
+  if (a === "export") {
+    const blob = new Blob(
+      [
+        JSON.stringify(
+          {
+            version: 1,
+            exportedAt: new Date().toISOString(),
+            games: state.games,
+            prefs: state.prefs,
+          },
+          null,
+          2,
+        ),
+      ],
+      { type: "application/json" },
+    );
+    const url = URL.createObjectURL(blob),
+      link = document.createElement("a");
+    link.href = url;
+    link.download =
+      "marriage-backup-" + new Date().toISOString().slice(0, 10) + ".json";
+    link.click();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+    toast("Backup exported");
+  }
+});
+document.addEventListener("input", (e) => {
+  if (e.target.matches("[data-maal]")) preview();
+  if (e.target.matches("[data-pref-name]")) {
+    state.prefs.names[Number(e.target.dataset.prefName)] = e.target.value;
+    persist();
+  }
+  if (
+    e.target.matches("[data-pref]") &&
+    e.target.checkValidity() &&
+    e.target.value !== ""
+  ) {
+    state.prefs[e.target.dataset.pref] = Number(e.target.value);
+    persist();
+  }
+});
+document.addEventListener("change", async (e) => {
+  if (e.target.id === "player-count") {
+    const values = [...document.querySelectorAll('[name^="player-"]')].map(
+      (i) => i.value,
+    );
+    document.querySelector("#new-player-fields").innerHTML = playerFields(
+      Array.from(
+        { length: Number(e.target.value) },
+        (_, i) => values[i] ?? state.prefs.names[i] ?? `Player ${i + 1}`,
+      ),
+    );
+  }
+  if (e.target.matches("[data-dubli]")) preview();
+  if (e.target.id === "import-backup") {
+    const file = e.target.files[0];
+    if (!file) return;
+    try {
+      if (file.size > 5000000)
+        throw new Error("Backup too large (limit 5 MB).");
+      const data = JSON.parse(await file.text());
+      validateBackup(data);
+      let added = 0;
+      for (const game of data.games)
+        if (!state.games.some((g) => g.id === game.id)) {
+          state.games.push(game);
+          added++;
+        }
+      persist();
+      render();
+      toast(`${added} games imported`);
+    } catch (error) {
+      toast(error.message || "Invalid backup.");
+    }
+  }
+});
+document.addEventListener("submit", (e) => {
+  if (e.target.id === "new-game-form") {
+    e.preventDefault();
+    const f = new FormData(e.target),
+      count = Number(f.get("count"));
+    const players = Array.from({ length: count }, (_, i) => ({
+      id: id(),
+      name: String(f.get("player-" + i)).trim(),
+    }));
+    if (
+      players.some((p) => !p.name) ||
+      new Set(players.map((p) => p.name.toLowerCase())).size !== count
+    ) {
+      toast("Use a different name for each player.");
+      return;
+    }
+    const g = {
+      id: id(),
+      name: String(f.get("name")).trim() || "Card night",
+      players,
+      settings: {
+        pointRate: Number(f.get("rate")),
+        seenPoint: Number(f.get("seen")),
+        unseenPoint: Number(f.get("unseen")),
+        dubleeBonus: Number(f.get("bonus")),
+        dubleeExempt: f.has("exempt"),
+        better: f.has("better"),
+        currency: "NPR",
+      },
+      rounds: [],
+      createdAt: new Date().toISOString(),
+    };
+    state.games.unshift(g);
+    persist();
+    closeModal();
+    navigate("round", g.id);
+    toast("Your table is ready");
+  }
+  if (e.target.id === "round-form") {
+    e.preventDefault();
+    try {
+      const g = getGame(),
+        entries = readEntries(),
+        winnerId = document.querySelector("#winner").value;
+      const { scores } = calculateRound(entries, winnerId, g.settings);
+      const existing = g.rounds.find((r) => r.id === e.target.dataset.editing);
+      const round = {
+        id: existing?.id || id(),
+        number: existing?.number || g.rounds.length + 1,
+        winnerId,
+        entries,
+        scores,
+        createdAt: existing?.createdAt || new Date().toISOString(),
+      };
+      if (existing) g.rounds[g.rounds.indexOf(existing)] = round;
+      else g.rounds.push(round);
+      persist();
+      navigate("scoreboard", g.id);
+      toast("Round saved");
+    } catch (error) {
+      toast(error.message);
+    }
+  }
+});
+async function share() {
+  const g = getGame();
+  const text = `${g.name} · Marriage Hisab Kitab\n${g.rounds.length} rounds\n\n${g.players
+    .map((p) => {
+      const points = g.rounds.reduce((s, r) => s + (r.scores[p.id] || 0), 0);
+      return `${p.name}: ${points > 0 ? "+" : ""}${points} pts · ${money(points * g.settings.pointRate, g.settings.currency || "USD")}`;
+    })
+    .join("\n")}`;
+  try {
+    if (navigator.share) await navigator.share({ title: g.name, text });
+    else {
+      await navigator.clipboard.writeText(text);
+      toast("Scores copied");
+    }
+  } catch (e) {
+    if (e.name !== "AbortError") toast("Sharing unavailable in this browser.");
+  }
+}
+document.addEventListener("keydown", (e) => {
+  if (!modal.firstChild) return;
+  if (e.key === "Escape") {
+    closeModal();
+    return;
+  }
+  if (e.key === "Tab") {
+    const items = [
+      ...modal.querySelectorAll('button,input,select,summary,[tabindex="0"]'),
+    ].filter((x) => !x.disabled && x.getClientRects().length);
+    if (e.shiftKey && document.activeElement === items[0]) {
+      e.preventDefault();
+      items.at(-1)?.focus();
+    } else if (!e.shiftKey && document.activeElement === items.at(-1)) {
+      e.preventDefault();
+      items[0]?.focus();
+    }
+  }
+});
+window.addEventListener("beforeinstallprompt", (e) => {
+  e.preventDefault();
+  installPrompt = e;
+  document.querySelector("#install-button").hidden = false;
+});
+document.querySelector("#install-button").onclick = async () => {
+  if (!installPrompt) return;
+  await installPrompt.prompt();
+  installPrompt = null;
+  document.querySelector("#install-button").hidden = true;
+};
+setRenderer(render);
+render();
+
+</script>
     <script>
-      if ('serviceWorker' in navigator) window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js'));
+      if ("serviceWorker" in navigator)
+        window.addEventListener("load", () =>
+          navigator.serviceWorker.register("./sw.js").catch(() => {}),
+        );
     </script>
   </body>
 </html>
