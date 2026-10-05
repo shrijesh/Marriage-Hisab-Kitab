@@ -1494,7 +1494,7 @@ const STORAGE = {
 };
 const defaultPrefs = {
   playerCount: 4,
-  names: ["Saroj", "Raj", "Padam", "Prakash", "Pragyan"],
+  names: [],
   pointRate: 1,
   theme: "light",
 };
@@ -1515,6 +1515,12 @@ const state = {
   games: load(STORAGE.games, []),
   prefs: { ...defaultPrefs, ...load(STORAGE.prefs, {}) },
 };
+
+// Clear the inherited demonstration roster; keep customised player lists and games.
+if (JSON.stringify(state.prefs.names) === JSON.stringify(["Saroj", "Raj", "Padam", "Prakash", "Pragyan"])) {
+  state.prefs.names = [];
+  localStorage.setItem(STORAGE.prefs, JSON.stringify(state.prefs));
+}
 
 function save() {
   localStorage.setItem(STORAGE.games, JSON.stringify(state.games));
@@ -1828,7 +1834,7 @@ function configView() {
 
 // Source: js/views/rules.js
 function rulesView() {
-  return `<div class="page-heading"><div><p class="eyebrow">A FAIR TABLE STARTS HERE</p><h1>Rules & scoring</h1><p class="muted">Agree on your house rules before the first deal.</p></div></div><div class="rules-layout"><section class="card"><h2>The round calculation</h2><p>Count each Seen player’s eligible maal. Unseen maal is zero in this calculator.</p><div class="formula">Net points = players × your maal − total maal − finishing charge</div><p>Each opponent pays their net loss to the finisher. A negative payment means the finisher pays them. Finishing first can still leave you with a net loss.</p><div class="rule-list"><div class="rule"><strong>Seen / Unseen</strong><p>Reference finishing charges: 3 points if Seen; 10 if Unseen.</p></div><div class="rule"><strong>Dublee</strong><p>Identical-card pairs. Seven pairs to see the tiplu; eight to finish. Pagat adds 5 points per opponent for a dublee finish.</p></div><div class="rule"><strong>Your original table rules</strong><p>Dublee losers pay no Seen charge; no extra dublee finish bonus. New-game defaults preserve this convention. Both are configurable.</p></div><div class="rule"><strong>Better</strong><p>Optional house rule here: double the entire round if any Seen player plays dublee. This is off by default.</p></div></div><h2>Maal reference</h2><div class="table-wrap"><table class="score-table"><thead><tr><th>Combination</th><th>Single</th><th>Double</th><th>Triple</th></tr></thead><tbody><tr><td>Tiplu</td><td>3</td><td>7</td><td>—</td></tr><tr><td>Jhiplu / Poplu</td><td>2</td><td>5</td><td>10</td></tr><tr><td>Marriage</td><td>10</td><td>30</td><td>—</td></tr></tbody></table></div><p class="small muted">Marriage = same-suit Jhiplu + Tiplu + Poplu. Count each card once. Declared tunnela, alter and printed-joker values depend on your table: include eligible points in the entered maal.</p></section><aside><div class="card"><h2>21-card basics</h2><div class="rule"><strong>Cards & players</strong><p>Three standard 52-card decks; 21 cards per player; usually 2–5 players. Printed jokers are a variation.</p></div><div class="rule"><strong>Opening</strong><p>Three pure sequences or tunnelas let a player see the tiplu.</p></div><div class="rule"><strong>Tunnela / Trial</strong><p>Tunnela: three identical cards. Trial: same rank, three different suits.</p></div><div class="rule"><strong>Local variation</strong><p>Murder, foul, drop and special-card rules differ. Automatic foul/drop penalties are not included.</p></div></div><div class="card source-card"><p class="eyebrow">RESEARCH · 5 OCT 2026</p><h3>Sources</h3><a href="https://www.pagat.com/rummy/marriage.html" target="_blank" rel="noopener">Pagat · rules & scoring</a><a href="https://bhoos.games/marriage/" target="_blank" rel="noopener">Bhoos · game terminology</a><p class="small muted">No verified universal 2026 rule revision. Confirm local conventions at your table.</p><p class="small muted">Original app: Saroj Poudyal. Entertainment scorekeeping; no payments processed.</p></div></aside></div>`;
+  return `<div class="page-heading"><div><p class="eyebrow">A FAIR TABLE STARTS HERE</p><h1>Rules & scoring</h1><p class="muted">Agree on your house rules before the first deal.</p></div></div><div class="rules-layout"><section class="card"><h2>The round calculation</h2><p>Count each Seen player’s eligible maal. Unseen maal is zero in this calculator.</p><div class="formula">Net points = players × your maal − total maal − finishing charge</div><p>Each opponent pays their net loss to the finisher. A negative payment means the finisher pays them. Finishing first can still leave you with a net loss.</p><div class="rule-list"><div class="rule"><strong>Seen / Unseen</strong><p>Reference finishing charges: 3 points if Seen; 10 if Unseen.</p></div><div class="rule"><strong>Dublee</strong><p>Identical-card pairs. Seven pairs to see the tiplu; eight to finish. Pagat adds 5 points per opponent for a dublee finish.</p></div><div class="rule"><strong>Default table rules</strong><p>Dublee losers pay no Seen charge; no extra dublee finish bonus. Both settings can be changed before starting a game.</p></div><div class="rule"><strong>Better</strong><p>Optional house rule here: double the entire round if any Seen player plays dublee. This is off by default.</p></div></div><h2>Maal reference</h2><div class="table-wrap"><table class="score-table"><thead><tr><th>Combination</th><th>Single</th><th>Double</th><th>Triple</th></tr></thead><tbody><tr><td>Tiplu</td><td>3</td><td>7</td><td>—</td></tr><tr><td>Jhiplu / Poplu</td><td>2</td><td>5</td><td>10</td></tr><tr><td>Marriage</td><td>10</td><td>30</td><td>—</td></tr></tbody></table></div><p class="small muted">Marriage = same-suit Jhiplu + Tiplu + Poplu. Count each card once. Declared tunnela, alter and printed-joker values depend on your table: include eligible points in the entered maal.</p></section><aside><div class="card"><h2>21-card basics</h2><div class="rule"><strong>Cards & players</strong><p>Three standard 52-card decks; 21 cards per player; usually 2–5 players. Printed jokers are a variation.</p></div><div class="rule"><strong>Opening</strong><p>Three pure sequences or tunnelas let a player see the tiplu.</p></div><div class="rule"><strong>Tunnela / Trial</strong><p>Tunnela: three identical cards. Trial: same rank, three different suits.</p></div><div class="rule"><strong>Local variation</strong><p>Murder, foul, drop and special-card rules differ. Automatic foul/drop penalties are not included.</p></div></div><div class="card source-card"><p class="eyebrow">RESEARCH · 5 OCT 2026</p><h3>Sources</h3><a href="https://www.pagat.com/rummy/marriage.html" target="_blank" rel="noopener">Pagat · rules & scoring</a><a href="https://bhoos.games/marriage/" target="_blank" rel="noopener">Bhoos · game terminology</a><p class="small muted">No verified universal 2026 rule revision. Confirm local conventions at your table.</p><p class="small muted">Entertainment scorekeeping; no payments processed.</p></div></aside></div>`;
 }
 
 
@@ -1938,7 +1944,7 @@ function playerFields(names) {
   return names
     .map(
       (name, i) =>
-        `<div class="field"><label for="player-${i}">Player ${i + 1}</label><input id="player-${i}" name="player-${i}" value="${escape(name)}" maxlength="40" autocomplete="off" required></div>`,
+        `<div class="field"><label for="player-${i}">Player ${i + 1}</label><input id="player-${i}" name="player-${i}" value="${escape(name)}" placeholder="Enter player name" maxlength="40" autocomplete="off" required></div>`,
     )
     .join("");
 }
@@ -1953,7 +1959,7 @@ function newGameForm() {
     )
     .join(
       "",
-    )}</select><small>Standard: 2–5. Larger tables use your house rules.</small></div><div class="player-fields" id="new-player-fields">${playerFields(Array.from({ length: state.prefs.playerCount }, (_, i) => state.prefs.names[i] || `Player ${i + 1}`))}</div><div class="field rate-field"><label for="rate">NPR per point</label><input id="rate" name="rate" type="number" min="0" max="10000" step="0.01" value="${state.prefs.pointRate}" required><small>0 = points only.</small></div><details class="house-rules" open><summary>Table rules <span>Choose before playing</span></summary><div class="field-grid"><div class="field"><label for="seen">Seen charge</label><input id="seen" name="seen" type="number" min="0" max="10000" value="3" required></div><div class="field"><label for="unseen">Unseen charge</label><input id="unseen" name="unseen" type="number" min="0" max="10000" value="10" required></div><div class="field"><label for="bonus">Dublee win bonus</label><input id="bonus" name="bonus" type="number" min="0" max="10000" value="0" required></div></div><label class="toggle"><input name="exempt" type="checkbox" checked> Dublee loser pays no Seen charge</label><label class="toggle"><input name="better" type="checkbox"> Better: double all points when anyone plays dublee</label><p class="muted small">Starting rules match your original app. Pagat’s reference: no dublee exemption; +5 per opponent for a dublee finish.</p></details></div><div class="modal-footer"><button type="button" class="button ghost" data-action="close-modal">Cancel</button><button class="button primary">Start game</button></div></form></section></div>`;
+    )}</select><small>Standard: 2–5. Larger tables use your house rules.</small></div><div class="player-fields" id="new-player-fields">${playerFields(Array.from({ length: state.prefs.playerCount }, (_, i) => state.prefs.names[i] || ""))}</div><div class="field rate-field"><label for="rate">NPR per point</label><input id="rate" name="rate" type="number" min="0" max="10000" step="0.01" value="${state.prefs.pointRate}" required><small>0 = points only.</small></div><details class="house-rules" open><summary>Table rules <span>Choose before playing</span></summary><div class="field-grid"><div class="field"><label for="seen">Seen charge</label><input id="seen" name="seen" type="number" min="0" max="10000" value="3" required></div><div class="field"><label for="unseen">Unseen charge</label><input id="unseen" name="unseen" type="number" min="0" max="10000" value="10" required></div><div class="field"><label for="bonus">Dublee win bonus</label><input id="bonus" name="bonus" type="number" min="0" max="10000" value="0" required></div></div><label class="toggle"><input name="exempt" type="checkbox" checked> Dublee loser pays no Seen charge</label><label class="toggle"><input name="better" type="checkbox"> Better: double all points when anyone plays dublee</label><p class="muted small">Choose the rules everyone at your table agrees on.</p></details></div><div class="modal-footer"><button type="button" class="button ghost" data-action="close-modal">Cancel</button><button class="button primary">Start game</button></div></form></section></div>`;
 }
 function confirmModal(
   title,
@@ -2240,7 +2246,7 @@ document.addEventListener("change", async (e) => {
     document.querySelector("#new-player-fields").innerHTML = playerFields(
       Array.from(
         { length: Number(e.target.value) },
-        (_, i) => values[i] ?? state.prefs.names[i] ?? `Player ${i + 1}`,
+        (_, i) => values[i] ?? state.prefs.names[i] ?? "",
       ),
     );
   }
