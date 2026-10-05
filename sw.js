@@ -1,24 +1,5 @@
-const CACHE_NAME = "marriage-hisab-kitab-v2";
-const APP_SHELL = [
-  "./",
-  "./index.html",
-  "./styles/styles.css",
-  "./app.js",
-  "./js/core.js",
-  "./js/modals.js",
-  "./js/views/home.js",
-  "./js/views/games.js",
-  "./js/views/config.js",
-  "./js/views/rules.js",
-  "./js/views/scoreboard.js",
-  "./js/views/round.js",
-  "./js/views/detail.js",
-  "./manifest.webmanifest",
-  "./assets/icons/icon-192.png",
-  "./assets/icons/icon-512.png",
-  "./assets/icons/icon-maskable-512.png",
-  "./assets/GulmiMap.png",
-];
+const CACHE_NAME = "marriage-hisab-kitab-standalone-v6";
+const APP_SHELL = ["./", "./index.html", "./manifest.webmanifest", "./assets/icons/icon-192.png", "./assets/icons/icon-512.png", "./assets/icons/icon-maskable-512.png"];
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
@@ -34,7 +15,10 @@ self.addEventListener("activate", (event) => {
       .then((keys) =>
         Promise.all(
           keys
-            .filter((key) => key !== CACHE_NAME)
+            .filter(
+              (key) =>
+                key.startsWith("marriage-hisab-kitab-") && key !== CACHE_NAME,
+            )
             .map((key) => caches.delete(key)),
         ),
       ),
@@ -43,20 +27,30 @@ self.addEventListener("activate", (event) => {
 });
 
 self.addEventListener("fetch", (event) => {
-  if (event.request.method !== "GET") return;
+  if (
+    event.request.method !== "GET" ||
+    new URL(event.request.url).origin !== self.location.origin
+  )
+    return;
   event.respondWith(
-    caches
-      .match(event.request)
-      .then((cached) => {
-        if (cached) return cached;
-        return fetch(event.request).then((response) => {
+    fetch(event.request)
+      .then((response) => {
+        if (response.ok) {
           const copy = response.clone();
-          caches
-            .open(CACHE_NAME)
-            .then((cache) => cache.put(event.request, copy));
-          return response;
-        });
+          event.waitUntil(
+            caches
+              .open(CACHE_NAME)
+              .then((cache) => cache.put(event.request, copy)),
+          );
+        }
+        return response;
       })
-      .catch(() => caches.match("./index.html")),
+      .catch(
+        async () =>
+          (await caches.match(event.request)) ||
+          (event.request.mode === "navigate"
+            ? caches.match("./index.html")
+            : Response.error()),
+      ),
   );
 });
