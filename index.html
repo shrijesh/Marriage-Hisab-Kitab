@@ -1368,6 +1368,75 @@ input[type="checkbox"] {
 
 @media(max-width:520px){.player-top{margin-bottom:12px}.maal-row{padding:14px 0 10px}.player-card{padding:16px}.player-card.is-winner{padding:15px}.segmented button{min-height:32px}}
 
+/* Marriage Club: warm ivory, forest felt and engraved brass. */
+:root { --bg:#f5f2eb; --surface:#fffdf8; --ink:#18382f; --muted:#657269; --line:#e1e1d6; --green:#174d3e; --soft:#e8eee6; --shadow:0 8px 28px #23392c08; }
+body { background-image:radial-gradient(ellipse at 100% 0%,#dfdfcb66,transparent 45%); }
+.topbar {height:88px;max-width:1280px;}
+.brand {font-family:Georgia,'Times New Roman',serif;font-size:1.55rem;letter-spacing:-.04em;}
+.brand small {font-family:system-ui,sans-serif;letter-spacing:.23em;}
+.brand-mark {background:#183e32;border:1px solid #a8905b;border-radius:9px;box-shadow:inset 0 0 0 3px #183e32,inset 0 0 0 4px #af935a66;}
+.desktop-nav {background:#e7e8de;padding:5px;border:1px solid var(--line);border-radius:40px;}
+.desktop-nav button {border-radius:30px;min-width:96px;}
+.desktop-nav button.active {background:var(--surface);box-shadow:0 2px 5px #18382f0d;}
+#main-content {max-width:1280px;padding-top:38px;}
+h1 {font-family:Georgia,'Times New Roman',serif;font-weight:400;font-size:clamp(2rem,4vw,3.25rem);letter-spacing:-.045em;}
+.page-heading .muted {font-size:.95rem;}
+.eyebrow {font-size:.68rem;letter-spacing:.19em;}
+.local-badge {background:var(--surface);font-size:.72rem;}
+.welcome-grid {grid-template-columns:1.75fr 1fr;gap:24px;}
+.table-banner {min-height:355px;padding:38px 38px 25px;background:radial-gradient(ellipse at 75% 30%,#28634c,#143e31 70%);border:1px solid #264c3a;border-radius:22px;box-shadow:0 12px 24px #133e3118;}
+.table-banner:before {content:'';position:absolute;inset:10px;border:1px solid #c5ab7040;border-radius:15px;pointer-events:none;}
+.table-banner:after {content:'';position:absolute;width:380px;height:380px;border:1px solid #d4bc7520;border-radius:50%;right:-45px;top:-30px;pointer-events:none;}
+.table-banner h2 {font-family:Georgia,'Times New Roman',serif;font-weight:400;font-size:clamp(2.2rem,3.4vw,3.1rem);line-height:1.06;letter-spacing:-.035em;}
+.table-banner p {max-width:270px;line-height:1.6;color:#d3ded3;}
+.table-banner .eyebrow {color:#d9c79a;}
+.table-banner .gold {background:linear-gradient(110deg,#f0deab,#d3b576);border:1px solid #f3dfad;box-shadow:0 4px 12px #0002;min-width:205px;justify-content:space-between;}
+.table-banner .gold span {font-size:1.3rem;}
+.banner-bottom {z-index:1;color:#c5d0bd;font-size:.63rem;letter-spacing:.14em;}
+.card-fan {position:absolute;right:48px;top:60px;width:165px;height:215px;pointer-events:none;}
+.playing-card {position:absolute;inset:0;border-radius:13px;background:#fcf7e8;color:#18372d;padding:15px;box-shadow:0 14px 25px #041c2750;border:1px solid #efe2c3;transform-origin:50% 90%;}
+.playing-card span {display:block;font:27px/1 Georgia,serif;}
+.playing-card small {display:block;font-size:22px;margin-top:4px;}
+.playing-card b {position:absolute;inset:0;display:grid;place-items:center;font:100px Georgia,serif;}
+.card-back {transform:rotate(-23deg) translateX(-36px);background:repeating-linear-gradient(45deg,#214e40,#214e40 4px,#2b5b49 4px,#2b5b49 6px);border:6px solid #ede2c6;outline:1px solid #dbcfb4;}
+.card-back span {position:absolute;inset:8px;border:1px solid #e7cea6;display:grid;place-items:center;font-size:60px;color:#c8b585;}
+.card-red {transform:rotate(-10deg) translateX(-15px);color:#ac443e;}
+.card-ace {transform:rotate(9deg);}
+.playing-card .card-corner {position:absolute;bottom:15px;right:15px;transform:rotate(180deg);}
+.quick-card {padding:30px;border-radius:22px;box-shadow:var(--shadow);}
+.quick-card h2 {font:400 1.7rem/1.2 Georgia,serif;letter-spacing:-.035em;}
+.simple-steps {list-style:none;counter-reset:steps;padding:0;margin:24px 0 12px;width:100%;}
+.simple-steps li {counter-increment:steps;display:flex;align-items:center;gap:12px;line-height:1.4;margin-bottom:18px;}
+.simple-steps li:before {content:counter(steps,decimal-leading-zero);font-size:.7rem;border:1px solid var(--line);border-radius:50%;width:30px;height:30px;display:grid;place-items:center;flex-shrink:0;color:var(--green);}
+.empty {border-style:solid;background:var(--surface);padding:30px 20px;border-radius:18px;}
+.empty-symbol {color:#9c8859;}
+.button {border-radius:12px;min-height:48px;}
+.primary {box-shadow:0 3px 6px #183e3114;}
+.card,.player-card,.settlement-card,.preview-panel {box-shadow:var(--shadow);border-radius:18px;}
+.game-card:hover {border-color:#a4b4a2;}
+.player-card.is-winner {border-color:#b69b5b;background:linear-gradient(135deg,var(--surface),#eee5ce);box-shadow:0 0 0 3px #b69b5b15;}
+.player-card.is-winner .winner-select {background:#e4d4aa;color:#4d3c1b;border-color:#bba575;}
+.avatar {width:42px;height:42px;border:3px double #769e8866;}
+.leaderboard {border-radius:18px;overflow:hidden;box-shadow:var(--shadow);}
+.leader-row:first-child {background:linear-gradient(100deg,var(--soft),var(--surface));}
+.leader-row:first-child .rank {color:#95763b;font-weight:700;}
+.leader-score .score-number {font-size:1.9rem;font-weight:650;letter-spacing:-.06em;font-variant-numeric:tabular-nums;}
+.stepper input {font-size:1.6rem;font-weight:650;font-variant-numeric:tabular-nums;}
+.segmented {padding:4px;background:var(--soft);border-radius:12px;}
+.segmented button {min-height:40px;border-radius:8px;}
+.preview-panel {border-top:3px solid #b29a62;}
+.settlement-card {border-top:3px solid #b29a62;}
+.site-footer {font-size:.68rem;letter-spacing:.02em;}
+[data-theme="dark"] {--bg:#101e19;--surface:#192a23;--ink:#f0eedf;--muted:#b1bdad;--line:#35483a;--soft:#263e30;--green:#286047;}
+[data-theme="dark"] .desktop-nav {background:#172b21;}
+[data-theme="dark"] .player-card.is-winner {background:linear-gradient(135deg,var(--surface),#3b3824);}
+@media(min-width:761px) and (max-width:1080px) {.card-fan{right:28px;top:90px;transform:scale(.75);transform-origin:right center}.table-banner p{max-width:220px}.table-banner h2{font-size:2.3rem;}}
+@media(max-width:760px) {.topbar{height:78px}.welcome-grid{grid-template-columns:1fr;gap:18px}.table-banner{min-height:345px;padding:30px 26px 23px}.card-fan{right:30px;top:45px;transform:scale(.8);transform-origin:right center}.table-banner h2{font-size:2.7rem;max-width:290px}.table-banner p{max-width:240px}.quick-card{padding:24px}.quick-card h2{font-size:1.5rem}.simple-steps{margin-top:20px}.mobile-nav{box-shadow:0 -8px 24px #18382f08}.mobile-nav button.active{color:var(--ink)}.page-heading{gap:16px}.local-badge{font-size:.65rem}.segmented button{min-height:40px}.site-footer{line-height:1.6;}}
+@media(max-width:520px) {.card-fan{right:17px;top:70px;transform:scale(.57)}.table-banner{min-height:325px}.table-banner h2{font-size:2.5rem;max-width:235px}.table-banner p{max-width:195px;font-size:.8rem}.banner-bottom{font-size:.52rem;letter-spacing:.08em}.table-banner .gold{min-width:195px}.page-heading h1{font-size:2.2rem}.brand{font-size:1.4rem}.player-card{padding:18px}.player-card.is-winner{padding:17px}.winner-select{min-height:40px}.quick-card .text-button{padding-top:4px}.maal-row{padding-top:16px}.empty h3{font-size:.95rem;}}
+@media(max-width:520px){.table-banner{min-height:340px}.table-banner h2{font-size:2.15rem;max-width:none;margin-top:18px}.table-banner p{max-width:160px;margin-top:16px;margin-bottom:25px}.card-fan{top:auto;bottom:68px;right:18px;transform:scale(.42);transform-origin:right bottom}.table-banner .gold{min-width:190px}.simple-steps li::marker{content:''}}
+.board-layout>section,.board-layout>aside,.round-layout>div,.round-layout>aside{min-width:0}.table-wrap{max-width:100%;overflow-x:auto}.leader-score{flex-shrink:0}.rank{flex-shrink:0}
+[data-theme="dark"] body{background-image:radial-gradient(ellipse at 100% 0%,#29473233,transparent 45%)}
+
 </style>
   </head>
   <body>
@@ -1693,8 +1762,8 @@ function validateBackup(data) {
 // Source: js/views/home.js
 function homeView() {
   const recent = state.games[0];
-  return `<div class="page-heading"><div><p class="eyebrow">YOUR CARD TABLE</p><h1>Let’s keep the hisab.</h1><p class="muted">More time for the game. Less time doing the maths.</p></div><span class="local-badge">Device-only storage</span></div>
-<section class="welcome-grid"><div class="table-banner"><div><span class="eyebrow">MARRIAGE · म्यारिज</span><h2>Good company.<br>Clear scores.</h2><p>Your next round starts here.</p><button class="button gold" data-action="new-game">＋ Start a new game</button></div><div class="suit-mark" aria-hidden="true">♠</div><div class="banner-bottom"><span>21 cards. One table.</span><span>हिसाब किताब</span></div></div><div class="quick-card"><p class="eyebrow">${recent ? "BACK TO THE TABLE" : "FIRST GAME?"}</p><h2>${recent ? escape(recent.name) : "Keep it simple."}</h2><p class="muted">${recent ? `${recent.players.length} players · ${recent.rounds.length} rounds · ${dateLabel(recent.createdAt)}` : "Add your friends, choose your table rules and record the round."}</p>${recent ? `<div class="avatar-stack">${recent.players.map((x) => `<span class="avatar" title="${escape(x.name)}">${escape(x.name.charAt(0))}</span>`).join("")}</div><button class="button primary" data-action="open-game" data-id="${recent.id}">Continue game</button>` : `<ol class="simple-steps"><li>Name your players</li><li>Pick the winner & enter maal</li><li>See the scores instantly</li></ol><button class="text-button" data-action="navigate" data-view="rules">How scoring works</button>`}</div></section>
+  return `<div class="page-heading"><div><p class="eyebrow">THE MARRIAGE CLUB</p><h1>Your table. Your people.</h1><p class="muted">The cards are yours. The hisab is ours.</p></div><span class="local-badge">Private · On this device</span></div>
+<section class="welcome-grid"><div class="table-banner"><div><span class="eyebrow">MARRIAGE · म्यारिज</span><h2>Deal the cards.<br>We’ll keep score.</h2><p>A little friendly rivalry. A perfectly clear hisab.</p><button class="button gold" data-action="new-game">Start a new game <span aria-hidden="true">↗</span></button></div><div class="card-fan" aria-hidden="true"><div class="playing-card card-back"><span>✦</span></div><div class="playing-card card-red"><span>Q<small>♥</small></span><b>♥</b></div><div class="playing-card card-ace"><span>A<small>♠</small></span><b>♠</b><span class="card-corner">A<small>♠</small></span></div></div><div class="banner-bottom"><span>21 CARDS · COUNTLESS STORIES</span><span>हिसाब किताब</span></div></div><div class="quick-card"><p class="eyebrow">${recent ? "BACK TO THE TABLE" : "FIRST GAME?"}</p><h2>${recent ? escape(recent.name) : "Three steps. Then play."}</h2><p class="muted">${recent ? `${recent.players.length} players · ${recent.rounds.length} rounds · ${dateLabel(recent.createdAt)}` : "Add your friends, choose your table rules and record the round."}</p>${recent ? `<div class="avatar-stack">${recent.players.map((x) => `<span class="avatar" title="${escape(x.name)}">${escape(x.name.charAt(0))}</span>`).join("")}</div><button class="button primary" data-action="open-game" data-id="${recent.id}">Continue game</button>` : `<ol class="simple-steps"><li>Name your players</li><li>Pick the winner & enter maal</li><li>See the scores instantly</li></ol><button class="text-button" data-action="navigate" data-view="rules">How scoring works</button>`}</div></section>
 <section class="section"><div class="section-title"><div><p class="eyebrow">YOUR SESSIONS</p><h2>Recent games</h2></div><button class="text-button" data-action="navigate" data-view="games">View all games</button></div>${
     state.games.length
       ? `<div class="card-grid">${state.games
@@ -1704,7 +1773,7 @@ function homeView() {
               `<button class="card game-card" data-action="open-game" data-id="${g.id}"><span class="game-icon">♠</span><span class="game-card-copy"><h3>${escape(g.name)}</h3><p>${g.players.length} players · ${g.rounds.length} rounds</p><small>${money(g.settings.pointRate, g.settings.currency || "USD")} / point · ${dateLabel(g.createdAt)}</small></span><span class="chevron">›</span></button>`,
           )
           .join("")}</div>`
-      : `<div class="empty"><span class="empty-symbol">▤</span><h3>A clean slate.</h3><p>Your games will appear here. Everything stays on this device.</p></div>`
+      : `<div class="empty"><span class="empty-symbol">♧</span><h3>Every great game starts here.</h3><p>Start a table with your friends. We’ll save every round.</p></div>`
   }</section>`;
 }
 
